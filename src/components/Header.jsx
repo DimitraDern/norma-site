@@ -1,27 +1,28 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
-  { label: "Αρχική", href: "#top" },
-  { label: "Εταιρεία", href: "#about" },
-  { label: "Προϊόντα", href: "#products" },
-  { label: "Επικοινωνία", href: "#contact" },
+  { label: "Αρχική", to: "/" },
+  { label: "Εταιρεία", to: "/#about" },
+  { label: "Προϊόντα", to: "/products" },
+  { label: "Επικοινωνία", to: "/#contact" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header id="top" className="sticky top-0 z-50 bg-ink">
+    <header className="sticky top-0 z-50 bg-ink">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <a href="#top">
-            {/* Πραγματικό λογότυπο — βλ. οδηγίες παρακάτω για το πού μπαίνει το αρχείο */}
+          <Link to="/">
+            {/* Πραγματικό λογότυπο */}
             <img src="/images/norma-logo.png" alt="NORMA S.A. λογότυπο" className="w-10 h-10 object-contain" />
-          </a>
+          </Link>
           <div className="leading-tight">
-            <a href="#top" className="block font-display font-600 text-white text-sm tracking-wide hover:text-accent transition-colors">
+            <Link to="/" className="block font-display font-600 text-white text-sm tracking-wide hover:text-accent transition-colors">
               NORMA S.A.
-            </a>
+            </Link>
             <a
               href="https://normasa.gr/"
               target="_blank"
@@ -35,22 +36,22 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-accent transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          to="/#contact"
           className="hidden md:inline-block bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-4 py-2 rounded-sm transition-colors"
         >
           Ζητήστε προσφορά
-        </a>
+        </Link>
 
         <button
           onClick={() => setMenuOpen((v) => !v)}
@@ -69,9 +70,9 @@ export default function Header() {
       <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 bg-ink-light ${menuOpen ? "max-h-96" : "max-h-0"}`}>
         <nav className="flex flex-col px-6 py-4 gap-4">
           {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white/70 hover:text-white text-sm">
+            <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="text-white/70 hover:text-white text-sm">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

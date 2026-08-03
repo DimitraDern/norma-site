@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import Reveal from "./Reveal.jsx";
 
 // Το πεδίο "img" δείχνει σε αρχείο μέσα στο public/images/.
 const products = [
-  { code: "01", title: "Συρματόπλεγμα", spec: "5×5 – 100×100mm", desc: "Πονταριστά, δικτυωτά, εξάγωνα - σε ρολό ή φύλλο.", img: "/images/product-01.jpg" },
-  { code: "02", title: "NORMA Panel", spec: "2.50m · RAL 6005", desc: "Ηλεκτροστατικά βαμμένα & γαλβανιζέ σε φύλλα 2,50.", img: "/images/product-02.jpg" },
-  { code: "03", title: "Σύρματα & Αγκαθωτά", spec: "Ø 2.2 – 3.5mm", desc: "Ακανθωτά, κονσερτίνα, σύρματα γαλβανιζέ & χορτοδεσίας.", img: "/images/product-03.png" },
-  { code: "04", title: "Πονταριστά", spec: "50×50mm", desc: "Ηλεκτροσυγκολλητά γαλβανιζέ πλέγματα σε ρολό και φύλλο.", img: "/images/product-04.png" },
-  { code: "05", title: "Κατασκευές Περιφράξεων", spec: "50×50mm", desc: "Πλήρης κατασκευή & τοποθέτηση - οικόπεδα, φωτοβολταϊκά, NATO.", img: "/images/product-05.png" },
-  { code: "06", title: "Χειράμαξες & Κάγκελα", spec: "Κατά παραγγελία", desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, πόρτες, gabion & διακοσμητικά.", img: "/images/product-06.png" },
+  { code: "01", title: "Συρματόπλεγμα", desc: "Πονταριστά, δικτυωτά, εξάγωνα - σε ρολό ή φύλλο.", img: "/images/product-01.jpg" },
+  { code: "02", title: "NORMA Panel", desc: "Ηλεκτροστατικά βαμμένα & γαλβανιζέ σε φύλλα 2,50.", img: "/images/product-02.jpg" },
+  { code: "03", title: "Σύρματα & Αγκαθωτά", desc: "Ακανθωτά, κονσερτίνα, σύρματα γαλβανιζέ & χορτοδεσίας.", img: "/images/product-03.png" },
+  { code: "04", title: "Πονταριστά", desc: "Ηλεκτροσυγκολλητά γαλβανιζέ πλέγματα σε ρολό και φύλλο.", img: "/images/product-04.png" },
+  { code: "05", title: "Κατασκευές Περιφράξεων", desc: "Πλήρης κατασκευή & τοποθέτηση - οικόπεδα, φωτοβολταϊκά, NATO.", img: "/images/product-05.png" },
+  { code: "06", title: "Χειράμαξες & Κάγκελα", desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, πόρτες, gabion & διακοσμητικά.", img: "/images/product-06.png" },
 ];
 
 export default function Products() {
@@ -26,7 +27,6 @@ export default function Products() {
                 <div className="pt-3 px-5 pb-5 flex flex-col flex-1">
                   <div className="flex items-baseline justify-between mb-1">
                     <span className="font-mono text-xs text-accent">{p.code}</span>
-                    <span className="font-mono text-[11px] text-steel">{p.spec}</span>
                   </div>
                   <h3 className="font-display font-600 text-lg text-ink mb-2">{p.title}</h3>
                   <p className="text-steel text-sm leading-relaxed">{p.desc}</p>
@@ -35,6 +35,15 @@ export default function Products() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={200} className="text-center mt-10">
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:underline"
+          >
+            Δείτε όλο τον κατάλογο →
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
