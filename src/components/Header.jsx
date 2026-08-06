@@ -39,7 +39,7 @@ export default function Header() {
             <Link
               key={link.to}
               to={link.to}
-              className="font-mono text-xs uppercase tracking-wider text-white/60 hover:text-accent transition-colors"
+              className="font-mono text-xs uppercase tracking-[0.15em] text-white/60 hover:text-white transition-opacity"
             >
               {link.label}
             </Link>

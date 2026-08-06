@@ -1,12 +1,11 @@
 export default function VideoHero() {
   return (
     <section className="relative h-screen overflow-hidden bg-ink">
-      {/* Το βίντεο παίζει αυτόματα, σε loop, χωρίς ήχο -- καμία αλληλεπίδραση με το scroll */}
+      {/* Το βίντεο παίζει αυτόματα, ΜΙΑ φορά, χωρίς ήχο -- ξαναπαίζει μόνο σε refresh */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src="/hero.mp4"
         autoPlay
-        loop
         muted
         playsInline
       />

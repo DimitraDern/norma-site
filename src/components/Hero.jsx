@@ -1,109 +1,52 @@
-import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-
-  // Ενημερώνει τη θέση του "φωτός" μέσω CSS custom properties,
-  // ώστε το radial-gradient στο .hero-spotlight να ακολουθεί τον κέρσορα.
-  function handleMouseMove(e) {
-    const rect = sectionRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    sectionRef.current.style.setProperty("--spot-x", `${x}%`);
-    sectionRef.current.style.setProperty("--spot-y", `${y}%`);
-  }
-
   return (
-    <section
-      ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      className="relative bg-paper mesh-line-bg overflow-hidden"
-    >
-      {/* Το διαδραστικό φως — ακολουθεί το ποντίκι πάνω από το πλέγμα-φόντο */}
-      <div className="pointer-events-none absolute inset-0 hero-spotlight" />
+    <section className="bg-paper">
+      <div className="max-w-6xl mx-auto px-6 pt-14 pb-16">
+        {/* Μικρή ετικέτα -- brand continuity με το tag-motif */}
+        <div className="tag-card inline-block px-4 py-2 -rotate-2 mb-10" style={{ "--rot": "-2deg" }}>
+          <div className="pt-2 flex items-baseline gap-2">
+            <span className="font-mono text-[10px] uppercase tracking-wide text-steel">Από το</span>
+            <span className="font-display font-700 text-accent">1976</span>
+          </div>
+        </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
-        {/* Αριστερά: headline */}
-        <div className="animate-fade-up">
-          <h1 className="font-display font-700 text-5xl md:text-[3.7rem] leading-[1.02] text-ink mb-6">
-            Συρματουργία Έβρου 
-            <br />
-            NORMA A.E.
-          </h1>
-          <p className="text-steel text-lg max-w-md mb-9 leading-relaxed">
-            Πρώτοι στον κλάδο συρματουργίας στην Ελλάδα - Κατασκευή, εγκατάσταση, ποιότητα.
+        {/* Μεγάλος, στοιβαγμένος τίτλος -- το κύριο typographic στοιχείο της σελίδας */}
+        <h1 className="font-display font-700 text-ink leading-[0.92] tracking-tight">
+          <span className="block text-[15vw] sm:text-[10vw] lg:text-[6.2rem]">Σύρμα</span>
+          <span className="block text-[15vw] sm:text-[10vw] lg:text-[6.2rem]">που δένει</span>
+          <span className="block text-[15vw] sm:text-[10vw] lg:text-[6.2rem] text-accent">&amp; κρατάει</span>
+        </h1>
+
+        <div className="mt-12 flex flex-wrap items-end justify-between gap-8">
+          <p className="text-steel text-lg max-w-sm">
+            Ζωπλαστικά δίχτυα, panel περιφράξεις και γαλβανιζέ τελάρα, φτιαγμένα
+            στον Έβρο από το 1976.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#products"
-              className="bg-accent hover:bg-accent-dark text-white font-semibold px-7 py-3.5 rounded-sm transition-all hover:-translate-y-0.5"
+            <Link
+              to="/products"
+              className="bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-sm transition-colors"
             >
               Δείτε τα προϊόντα
-            </a>
+            </Link>
             <a
               href="#contact"
-              className="border-2 border-ink text-ink font-semibold px-7 py-3.5 rounded-sm hover:bg-ink hover:text-white transition-colors"
+              className="border-2 border-ink text-ink font-semibold px-6 py-3 rounded-sm hover:bg-ink hover:text-white transition-colors"
             >
               Ζητήστε προσφορά
             </a>
           </div>
         </div>
-
-        {/* Δεξιά: η πραγματική φωτογραφία του κτιρίου, σε "blueprint" μπλε απόχρωση,
-            με το διαγώνιο πλέγμα σχεδιασμένο πάνω της σαν τεχνικό annotation.
-            Η ιδέα: τα "blueprints" ήταν ιστορικά μπλε φωτογραφικές εκτυπώσεις —
-            εδώ η πραγματική φωτο και το τεχνικό σχέδιο γίνονται ένα. */}
-        <div className="relative hidden md:block">
-          <div className="absolute -top-6 right-16 w-px h-8 bg-ink/30 z-20" />
-          <div
-            className="tag-card absolute -top-2 right-8 z-20 px-4 py-3 rotate-6 shadow-md"
-            style={{ "--rot": "6deg" }}
-          >
-            <div className="pt-2 font-mono text-[10px] uppercase tracking-wide text-steel">Από το</div>
-            <div className="font-display font-700 text-lg text-accent leading-none">1976</div>
-          </div>
-
-          <div className="relative w-full aspect-[6/5] rounded-sm border border-ink/20 overflow-hidden">
-            {/* Η πραγματική φωτογραφία — βάλε το αρχείο σου στο public/images/hero-building.jpg */}
-            <img
-              src="/images/hero-building.png"
-              
-              className="absolute inset-0 w-full h-full object-cover grayscale contrast-125"
-            />
-            {/* Δύο επίπεδα blend mode πάνω στη φωτο, ώστε να πάρει τη μπλε απόχρωση "blueprint" */}
-            <div className="absolute inset-0 bg-ink mix-blend-color" />
-            <div className="absolute inset-0 bg-accent/25 mix-blend-multiply" />
-
-            {/* Το διαγώνιο πλέγμα, σχεδιασμένο πάνω στη φωτο σαν τεχνικό annotation */}
-            <svg viewBox="0 0 360 300" className="absolute inset-0 w-full h-full">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <line
-                  key={`a${i}`}
-                  x1={-60 + i * 40}
-                  y1="0"
-                  x2={-60 + i * 40 + 300}
-                  y2="300"
-                  stroke="#ffffff"
-                  strokeWidth="1"
-                  opacity="0.28"
-                />
-              ))}
-              {Array.from({ length: 12 }).map((_, i) => (
-                <line
-                  key={`b${i}`}
-                  x1={-60 + i * 40}
-                  y1="300"
-                  x2={-60 + i * 40 + 300}
-                  y2="0"
-                  stroke="#ffffff"
-                  strokeWidth="1"
-                  opacity="0.28"
-                />
-              ))}
-            </svg>
-          </div>
-        </div>
       </div>
+
+      {/* Πραγματική φωτο, edge-to-edge, κάτω από τον τίτλο -- καθαρά typographic/εικόνα, χωρίς επιπλέον διάκοσμο */}
+      <img
+        src="/images/product-01.jpg"
+        alt="Συρματόπλεγμα NORMA"
+        className="w-full h-[38vh] sm:h-[46vh] object-cover"
+      />
     </section>
   );
 }
