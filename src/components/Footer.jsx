@@ -15,7 +15,7 @@ export default function Footer() {
         <div>
           <img src={asset("/images/norma-logo.png")} alt="NORMA S.A." className="w-10 h-10 object-contain mb-3" />
           <p className="font-display font-600 text-white text-sm">NORMA S.A.</p>
-          <p className="text-white/40 text-xs mt-1">Συρματουργία Έβρου, από το 1976.</p>
+          <p className="text-white/40 text-xs mt-1">ΣΤΟΪΛΟΥΔΗΣ ΙΩΑΝΝΗΣ Α.Β.Ε.Ε.</p>
         </div>
 
         {/* Διεύθυνση */}
