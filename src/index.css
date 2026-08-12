@@ -80,3 +80,29 @@ textarea:focus-visible {
   background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 15%), rgba(31, 95, 168, 0.16), transparent 45%);
   transition: background 0.15s ease-out;
 }
+
+/* Ken Burns: αργό, συνεχές zoom + ελαφρύ pan -- σαν κάμερα που αποκαλύπτει
+   σιγά σιγά το κτίριο. 20s κύκλος, forwards-backwards (alternate) ώστε να
+   μην κάνει απότομο "jump" πίσω στην αρχική θέση. */
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1%); }
+}
+.ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns {
+    animation: none;
+  }
+}
+
+/* Κρύβει τη scrollbar στο οριζόντιο carousel καρτών (Chrome/Firefox/Safari) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,11 +1,12 @@
 export default function VideoHero() {
   return (
     <section className="relative h-screen overflow-hidden bg-ink">
-      {/* Το βίντεο παίζει αυτόματα, ΜΙΑ φορά, χωρίς ήχο -- ξαναπαίζει μόνο σε refresh */}
+      {/* Το βίντεο παίζει αυτόματα, σε loop, χωρίς ήχο */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src="/hero.mp4"
         autoPlay
+        loop
         muted
         playsInline
       />
@@ -14,9 +15,7 @@ export default function VideoHero() {
 
       <div className="relative h-full flex items-center justify-center text-center px-6">
         <div className="max-w-2xl">
-          <p className="font-mono text-accent text-xs tracking-[0.25em] uppercase mb-5">
-            Από το 1976
-          </p>
+          
           <h1 className="font-display font-700 text-5xl md:text-6xl text-white leading-tight mb-6">
             Συρματουργία Έβρου
             <br />
@@ -39,6 +38,23 @@ export default function VideoHero() {
               Ζητήστε προσφορά
             </a>
           </div>
+        </div>
+      </div>
+
+      {/* Trust-row: μικρά facts κάτω από τα κουμπιά, στυλ "λογότυπα πελατών" -- 
+          εδώ βάζουμε πραγματικά στοιχεία αντί για λογότυπα που δεν έχουμε */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/15 bg-ink/40">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-x-10 gap-y-2">
+          {[
+            ["1976", "Έτος ίδρυσης"],
+            ["100%", "Ελληνική παραγωγή"],
+            ["Πανελλαδικά", "& εξαγωγές"],
+          ].map(([value, label]) => (
+            <div key={label} className="text-center">
+              <div className="font-display font-700 text-sm text-white">{value}</div>
+              <div className="font-mono text-[10px] uppercase tracking-wide text-white/50">{label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ const categories = [
     group: "Πλέγματα",
     tagline: "Πονταριστά συρματοπλέγματα υψηλής αντοχής για αγροτικές και βιομηχανικές περιφράξεις, παραγωγή NORMA S.A.",
     desc: "Ηλεκτροσυγκολλητά (πονταριστά) συρματοπλέγματα σε ρολό — πλήρης γκάμα καρέ, υψών και διαμέτρων σύρματος.",
-    images: ["/images/product-04.png", "/images/pontarista-1.png", "/images/pontarista-2.jpg", "/images/pontarista-3.png"],
+    images: ["/images/product-01.jpg", "/images/product-04.png", "/images/product-01-c.jpg"],
     variants: [
       { name: "Πονταριστό 60×100 mm (Φ 3.00/2.40)", subtitle: "Γαλβανιζέ, ρολό 20 m", specs: [["Καρέ", "60×100 mm"], ["Σύρμα", "Φ 3.00 / 2.40 mm"], ["Μήκος ρολού", "20 m"], ["Ύψη", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
       { name: "Πονταριστό 60×100 mm (Φ 2.70/2.40)", subtitle: "Γαλβανιζέ, ρολό 20 m", specs: [["Καρέ", "60×100 mm"], ["Σύρμα", "Φ 2.70 / 2.40 mm"], ["Μήκος ρολού", "20 m"], ["Ύψη", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
@@ -38,7 +38,7 @@ const categories = [
     group: "Πλέγματα",
     tagline: "Δικτυωτό πλεκτό συρματόπλεγμα (chain link) για περιφράξεις γηπέδων, οικοπέδων και βιομηχανικών χώρων.",
     desc: "Δικτυωτά (πλεκτά / chain-link) συρματοπλέγματα σε ρολό, γαλβανιζέ ή πλαστικοποιημένα. Σειρά «ΕΒΡΟΣ 1».",
-    images: ["/images/product-01.jpg", "/images/diktyota-1.jpg", "/images/diktyota-2.png"],
+    images: ["/images/product-01.jpg", "/images/product-02-b.jpg"],
     variants: [
       { name: "Νο 10 – Φ 1,5 mm", subtitle: "Καρέ 40×40 mm, ρολό 25 m", specs: [["Διάμετρος σύρματος", "1,5 mm"], ["Καρέ πλέγματος", "40×40 mm"], ["Μήκος ρολού", "25 m"], ["Ύψος ρολού", "1,00 – 1,20 – 1,50 – 1,80 – 2,00 m"]] },
       { name: "Νο 12 – Φ 1,8 mm", subtitle: "Καρέ 40×40 / 50×50 / 55×55 / 65×65 mm, ρολό 25 m", specs: [["Διάμετρος σύρματος", "1,8 mm"], ["Καρέ πλέγματος", "40×40 – 50×50 – 55×55 – 65×65 mm"], ["Μήκος ρολού", "25 m"], ["Ύψος ρολού", "1,00 – 1,20 – 1,50 – 1,80 – 2,00 m"]] },
@@ -55,7 +55,7 @@ const categories = [
     group: "Πλέγματα",
     tagline: "Γαλβανισμένο πλέγμα σε φύλλο για κατασκευαστικές και βιομηχανικές εφαρμογές.",
     desc: "Πονταριστά γαλβανιζέ πλέγματα σε φύλλα, 50 τεμ./δέμα.",
-    images: ["/images/panel-galvanized-1.png", "/images/panel-galvanized-2.png", "/images/panel-galvanized-3.jpg"],
+    images: ["/images/product-04.png", "/images/product-03-b.jpg"],
     variants: [
       { name: "Φύλλο Φ 3,00 mm", subtitle: "Γαλβανιζέ, 50 τεμ./δέμα", specs: [["Πάχος σύρματος", "3,00 mm"], ["Διαστάσεις", "2,00×5,00 m | 1,50×5,00 m"], ["Τεμάχια/δέμα", "50"]] },
       { name: "Φύλλο Φ 3,50 mm", subtitle: "Γαλβανιζέ, 50 τεμ./δέμα", specs: [["Πάχος σύρματος", "3,50 mm"], ["Διαστάσεις", "2,00×5,00 m | 1,50×5,00 m"], ["Τεμάχια/δέμα", "50"]] },
@@ -68,7 +68,7 @@ const categories = [
     group: "Πλέγματα",
     tagline: "Πάνελ περίφραξης γαλβανιζέ ή ηλεκτροστατικά βαμμένα, ιδανικά για κήπους, αυλές και επαγγελματικούς χώρους.",
     desc: "Πλέγματα γαλβανιζέ και πλαστικοποιημένα (PVC) σε φύλλα panel 2,50 m. Χρώματα: RAL 6005 (πράσινο), 7043 (σκούρο γκρι), 7045 (ανοιχτό γκρι).",
-    images: ["/images/product-02.jpg", "/images/norma-panel-1.png", "/images/norma-panel-2.png", "/images/norma-panel-3.jpg", "/images/norma-panel-4.png",  "/images/norma-panel-5.jpg"],
+    images: ["/images/product-02.jpg", "/images/product-04-b.jpg"],
     variants: [
       { name: "NORMA Panel PVC 50×100", subtitle: "Γαλβανιζέ + πλαστικοποιημένο, Φ 4,20 mm", specs: [["Διάμετρος σύρματος", "4,20 mm"], ["Καρέ", "50×100 mm"], ["Διαστάσεις (Ύψος×Μήκος)", "1,00×2,50 | 1,20×2,50 | 1,50×2,50 | 1,76×2,50 | 1,96×2,50 m"], ["Χρώματα RAL", "6005 – 7043 – 7045"]] },
       { name: "Panel Γαλβανιζέ 50×100", subtitle: "Γαλβανιζέ χωρίς βαφή, Φ 4,00 mm", specs: [["Διάμετρος σύρματος", "4,00 mm"], ["Καρέ", "50×100 mm"], ["Διαστάσεις (Ύψος×Μήκος)", "1,00×2,50 | 1,20×2,50 | 1,50×2,50 | 1,76×2,50 | 1,96×2,50 m"]] },
@@ -84,7 +84,7 @@ const categories = [
     group: "Πλέγματα",
     tagline: "Γαλβανισμένο εξάγωνο συρματόπλεγμα για κοτέτσια, κλουβιά και προστασία καλλιεργειών.",
     desc: "Κλασικό εξάγωνο πλέγμα για πτηνοτροφεία, κήπους και ελαφριές περιφράξεις.",
-    images: ["/images/hexagonal-1.png"],
+    images: ["/images/product-01.jpg"],
     variants: [
       { name: "Νο 2,5 – Φ 0,70 mm – Καρέ 1/2\"", subtitle: "Γαλβανιζέ, ρολό 25 m", specs: [["Διάμετρος σύρματος", "0,70 mm"], ["Καρέ", "1/2\" (13 mm)"], ["Μήκος ρολού", "25 m"], ["Ύψος ρολού", "0,80 – 1,00 – 1,20 – 1,50 m"]] },
       { name: "Νο 4 – Φ 0,90 mm – Καρέ 1\"", subtitle: "Γαλβανιζέ, ρολό 50 m", specs: [["Διάμετρος σύρματος", "0,90 mm"], ["Καρέ", "1\" (25 mm)"], ["Μήκος ρολού", "50 m"], ["Ύψος ρολού", "0,80 – 1,00 – 1,20 – 1,50 m"]] },
@@ -113,7 +113,7 @@ const categories = [
     group: "Ασφάλεια",
     tagline: "Συρμάτινη κονσερτίνα τύπου ΝΑΤΟ για υψηλή περιμετρική προστασία.",
     desc: "Κονσερτίνα ασφαλείας τύπου ΝΑΤΟ, γαλβανιζέ.",
-    images: ["/images/concertina-1.png"],
+    images: ["/images/product-03.png"],
     variants: [
       { name: "Κονσερτίνα Φ 200 mm", subtitle: "56 σπείρες, άνοιγμα 12 m", specs: [["Διάμετρος ρολού", "200 mm"], ["Σπείρες", "56"], ["Άνοιγμα", "12 m"], ["Διάμετρος/Άνοιγμα λεπίδας", "150 mm"]] },
       { name: "Κονσερτίνα Φ 300 mm", subtitle: "56 σπείρες, άνοιγμα 6 m", specs: [["Διάμετρος ρολού", "300 mm"], ["Σπείρες", "56"], ["Άνοιγμα", "6 m"], ["Διάμετρος/Άνοιγμα λεπίδας", "200 mm"]] },
@@ -127,7 +127,7 @@ const categories = [
     group: "Υλικά",
     tagline: "Γαλβανισμένο σύρμα διαφόρων διαμέτρων για βιομηχανική και αγροτική χρήση.",
     desc: "Γαλβανιζέ, μαύρα, ευθύγραμμα, χορτοδεσίας — για κάθε χρήση.",
-    images: ["/images/wire-1.png"],
+    images: ["/images/product-03.png"],
     variants: [
       { name: "Σύρμα θερμό γαλβάνισμα", subtitle: "Σε κουλούρα, πλήρης γκάμα διαμέτρων", specs: [["Διάμετρος", "0.90 – 1.20 – 1.50 – 1.80 – 2.00 – 2.20 – 2.40 – 2.70 – 3.00 – 3.90 – 4.00 mm"], ["Φινίρισμα", "Θερμό γαλβάνισμα"], ["Συσκευασία", "Κουλούρα"]] },
       { name: "Σύρμα πλαστικοποιημένο", subtitle: "Γαλβανιζέ με επικάλυψη PVC", specs: [["Διάμετρος", "2,60 mm"], ["Χρώματα", "Πράσινο, Μαύρο"]] },
@@ -143,7 +143,7 @@ const categories = [
     group: "Υλικά",
     tagline: "Γαλβανιζέ πάσσαλοι και σωλήνες για στήριξη περιφράξεων και κατασκευών.",
     desc: "Κοιλοδοκοί, σωλήνες γαλβανιζέ και σιδηρογωνίες για στήριξη περίφραξης.",
-    images: ["/images/posts-tubes-1.jpg", "/images/posts-painted-2.jpg",  "/images/posts-painted-3.jpg",  "/images/posts-tubes-4.jpg",  "/images/posts-angles-5.jpg"],
+    images: ["/images/product-05.png", "/images/product-09-b.jpg"],
     variants: [
       { name: "Κοιλοδοκός 50x50 Πλαστικοποιημένος – Πάχος 2,00 mm", subtitle: "Με βάση, πλαστικοποιημένοι (PVC)", specs: [["Διαστάσεις", "50×50 mm"], ["Πάχος", "2,00 mm"], ["Διαθέσιμα ύψη", "1,00 – 1,20 – 1,50 – 1,76 – 1,96 m"]] },
       { name: "Κοιλοδοκός 50x50 Πλαστικοποιημένος – Πάχος 1,50 mm", subtitle: "Με βάση, πλαστικοποιημένοι (PVC)", specs: [["Διαστάσεις", "50×50 mm"], ["Πάχος", "1,50 mm"], ["Διαθέσιμα ύψη", "1,00 – 1,20 – 1,50 – 1,76 – 1,96 m"]] },
@@ -160,7 +160,7 @@ const categories = [
     group: "Υλικά",
     tagline: "Καρφιά και βελονάκια στήριξης για εγκατάσταση συρματοπλεγμάτων.",
     desc: "Οικοδομικά καρφιά, ατσαλόκαρφα, στραβόκαρφα, δίχαλα και βελονάκια.",
-    images: ["/images/nails-1.png"],
+    images: ["/images/product-06.png"],
     variants: [
       { name: "Καρφιά οικοδομικά", subtitle: "Πλήρης γκάμα μεγεθών, συσκευασία 5 kg κουτί", specs: [["Νο.4", "2.50 mm × 40 mm"], ["Νο.5", "2.80 mm × 50 mm"], ["Νο.6", "2.80 mm × 60 mm"], ["Νο.7", "3.00 mm × 70 mm"], ["Νο.8", "3.50 mm × 80 mm"], ["Νο.10", "4.00 mm × 100 mm"], ["Νο.11", "4.00 mm × 110 mm"], ["Νο.12", "4.00 mm × 120 mm"], ["Νο.15", "5.00 mm × 150 mm"], ["Νο.18", "6.00 mm × 180 mm"], ["Νο.20", "6.00 mm × 200 mm"], ["Συσκευασία", "Κουτί 5 kg"]] },
       { name: "Ατσαλόκαρφα", subtitle: "Σκληρά, για σκυρόδεμα", specs: [["Μήκος", "25 – 30 – 40 – 50 – 60 mm"], ["Υλικό", "Σκληρός χάλυβας"]] },
@@ -175,7 +175,7 @@ const categories = [
     group: "Κατασκευές",
     tagline: "Κατασκευές gabion και αντιπλημμυρικά συστήματα για προστασία εδάφους και υποδομών.",
     desc: "Συρματοκιβώτια, gabion κατασκευές αντιστήριξης και αντιπλημμυρικής προστασίας.",
-    images: ["/images/gabion-1.png"],
+    images: ["/images/product-03.png"],
     variants: [
       { name: "Συρματοκιβώτιο αντιπλημμυρικό βαρύ γαλβάνισμα", subtitle: "Αντιπλημμυρικό / αντιστήριξης", specs: [["Διαστάσεις", "Κατά παραγγελία"], ["Πάχος σύρματος", "4.00 – 5.00 mm"], ["Καρέ πλέγματος", "50x100 mm"], ["Φινίρισμα", "Γαλβανιζέ / Galfan"]] },
       { name: "Αντιπλημμυρικό πλέγμα σε ρολό βαρύ γαλβάνισμα", subtitle: "Για κατασκευή gabion επιτόπου", specs: [["Πάχος σύρματος", "3,00 mm"], ["Ύψος", "0.50 – 1.00 – 2.00 m"], ["Μήκος ρολού", "25 – 50 m"]] },
@@ -188,7 +188,7 @@ const categories = [
     group: "Κατασκευές",
     tagline: "Κάγκελα και πόρτες ηλεκτροστατικά βαμμένες για ιδιωτικούς και επαγγελματικούς χώρους.",
     desc: "Μεταλλικές κατασκευές πάσης φύσεως — κάγκελα, πόρτες, υπόστεγα.",
-    images: ["/images/gates-painted-1.jpg", "/images/gates-painted-2.jpg", "/images/gates-painted-3.jpg"],
+    images: ["/images/product-05.png", "/images/product-12-b.jpg"],
     variants: [
       { name: "Κάγκελα", subtitle: "Κατά παραγγελία, μεταλλικά", specs: [["Υλικό", "Σίδερο ή αλουμίνιο"], ["Κατασκευή", "Κατά παραγγελία"]] },
       { name: "Πόρτες μεταλλικές", subtitle: "Μονόφυλλες & δίφυλλες, για περίφραξη", specs: [["Τύπος", "Μονόφυλλη ή δίφυλλη"], ["Πλάτος", "1.00 – 1.50 – 2.00 – 3.00 – 4.00 m"], ["Ύψος", "1.00 – 1.50 – 2.00 m"], ["Φινίρισμα", "Γαλβανιζέ ή ηλεκτροστατικά βαμμένο"]] },
@@ -201,7 +201,7 @@ const categories = [
     group: "Εξοπλισμός",
     tagline: "Χειράμαξες και εργαλεία για αγροτική και κατασκευαστική χρήση.",
     desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, καροτσάκια και ανταλλακτικά.",
-    images: ["/images/product-06.png", "/images/wheelbarrow-norma-1.png", "/images/wheelbarrow-norma-2.jpg", "/images/wheelbarrow-norma-3.jpg"],
+    images: ["/images/product-06.png", "/images/product-13-b.jpg"],
     variants: [
       { name: "Εργολαβικό απλό NORMA No 1", subtitle: "Χειράμαξα ηλεκτροστατικά βαμμένη", specs: [["Τύπος", "Απλή"], ["Ρόδα", "Αεροθαλάμου"], ["Φινίρισμα", "Ηλεκτροστατικά βαμμένη"]] },
       { name: "Εργολαβικό ενισχυμένο NORMA No 3", subtitle: "Βαρέως τύπου, ενισχυμένο πλαίσιο", specs: [["Τύπος", "Βαρέως τύπου ενισχυμένη"], ["Ρόδα", "Αεροθαλάμου ή συμπαγής"], ["Φινίρισμα", "Ηλεκτροστατικά βαμμένη"]] },
@@ -215,7 +215,7 @@ const categories = [
     group: "Κατασκευές",
     tagline: "Ολοκληρωμένες κατασκευές περιφράξεων κατά παραγγελία.",
     desc: "Πλήρη κατασκευή περίφραξης οικοπέδων, αγροτεμαχίων, στρατιωτικών εγκαταστάσεων τύπου ΝΑΤΟ, φωτοβολταϊκών πάρκων, κτηνοτροφικών μονάδων. Τα εξειδικευμένα συνεργεία μας αναλαμβάνουν την πλήρη κατασκευή και τοποθέτηση κάθε περίφραξης, προσαρμοσμένη στα μέτρα του πελάτη.",
-    images: ["/images/norma-panel-1.png", "/images/norma-panel-2.png", "/images/fencing-enhanced-1.png", "/images/fencing-enhanced-2.png"],
+    images: ["/images/product-05.png", "/images/hero-building.png"],
     variants: [
       { name: "Περίφραξη οικοπέδων", subtitle: "Πλήρης κατασκευή με panel ή πλέγμα", specs: [["Τύποι", "Ηλεκτροστατικά βαμμένα panel, πονταριστά, δικτυωτά"], ["Πάσσαλοι", "Κοιλοδοκοί 50×50, σωλήνες, σιδηρογωνίες"], ["Εξαρτήματα", "Clips, τάπες, στριφώνια, τεντωτήρες"]] },
       { name: "Περίφραξη αγροτεμαχίων", subtitle: "Ανθεκτικές κατασκευές για αγροτική χρήση", specs: [["Υλικά", "Πονταριστό ή δικτυωτό πλέγμα"], ["Στήριξη", "Σιδηρογωνίες ή γαλβανιζέ σωλήνες"]] },
@@ -230,7 +230,7 @@ const categories = [
     group: "Κατασκευές",
     tagline: "Μεταλλικές κατασκευές για αγροτικές εγκαταστάσεις και κτηνοτροφικές μονάδες.",
     desc: "Πασσάλωση και εξοπλισμός για ακτινίδια, σπαράγγια, αμπέλια, θερμοκήπια.",
-    images: ["/images/agricultural-1.png"],
+    images: ["/images/hero-building.png"],
     variants: [
       { name: "Πασσάλωση αγροτεμαχίων", subtitle: "Για ακτινίδια, σπαράγγια, αμπέλια", specs: [["Υλικό", "Γαλβανιζέ σωλήνες & κοιλοδοκοί"], ["Ύψος", "1.50 – 2.00 – 2.50 – 3.00 m"], ["Κατασκευή", "Κατά παραγγελία"]] },
       { name: "Θερμοκήπια", subtitle: "Μεταλλικός σκελετός, γαλβανιζέ", specs: [["Σκελετός", "Γαλβανιζέ σωλήνες"], ["Τύπος", "Τούνελ ή πολυκαρμπονάτο"], ["Κατασκευή", "Κατά παραγγελία"]] },
@@ -243,7 +243,7 @@ const categories = [
     group: "Κατασκευές",
     tagline: "Διακοσμητικές μεταλλικές κατασκευές για κήπους και εξωτερικούς χώρους.",
     desc: "Διακοσμητικά συρματοκιβώτια και αρχιτεκτονικές λύσεις με gabion.",
-    images: ["/images/decorative-1.png"],
+    images: ["/images/product-03.png"],
     variants: [
       { name: "Διακοσμητικά gabion «KORINA»", subtitle: "Για κήπους, τοπία & εξωτερικούς χώρους", specs: [["Τύπος", "Κουτί ή κολώνα"], ["Διαστάσεις", "Κατά παραγγελία"], ["Πάχος σύρματος", "3,00 – 4,00 mm"], ["Γέμισμα", "Φυσική πέτρα, βότσαλο"]] },
       { name: "Τοίχοι αντιστήριξης", subtitle: "Με φυσική πέτρα, gabion σύστημα", specs: [["Ύψος", "0.50 – 1.00 – 2.00+ m"], ["Πλάτος", "0.30 – 0.50 – 1.00 m"], ["Μήκος", "Κατά παραγγελία"]] },
@@ -317,7 +317,7 @@ export default function ProductCatalogue() {
 
   return (
     <div>
-      <div className="bg-ink py-14">
+      <div className="bg-ink pt-32 pb-14">
         <div className="max-w-6xl mx-auto px-6">
           <Link to="/" className="font-mono text-xs text-accent hover:underline">
             ← Αρχική
@@ -375,19 +375,25 @@ export default function ProductCatalogue() {
                   {isOpen && (
                     <div className="mt-4 space-y-3">
                       {cat.variants.map((v, vi) => (
-                        <div key={vi} className="bg-white border border-ink/10 rounded-sm p-3">
-                          <div className="font-semibold text-sm text-ink mb-0.5">{v.name}</div>
-                          <div className="text-xs text-ink/75 font-medium mb-2">{v.subtitle}</div>
-                          <div className="space-y-2">
-                            {v.specs.map(([label, value], si) => (
-                              <div key={si}>
-                                <div className="text-[10px] uppercase tracking-wide text-ink/80 font-semibold font-mono">
-                                  {label}
-                                </div>
-                                <div className="text-sm text-ink font-semibold">{value}</div>
-                              </div>
-                            ))}
+                        <div key={vi} className="bg-white border border-ink/10 rounded-sm overflow-hidden">
+                          <div className="p-3 pb-2">
+                            <div className="font-semibold text-sm text-ink mb-0.5">{v.name}</div>
+                            <div className="text-xs text-ink/75 font-medium">{v.subtitle}</div>
                           </div>
+                          <table className="w-full border-t border-ink/10">
+                            <tbody>
+                              {v.specs.map(([label, value], si) => (
+                                <tr key={si} className={si % 2 === 1 ? "bg-paper/60" : ""}>
+                                  <td className="py-1.5 pl-3 pr-2 text-[11px] uppercase tracking-wide text-ink/70 font-semibold font-mono whitespace-nowrap align-top w-[38%]">
+                                    {label}
+                                  </td>
+                                  <td className="py-1.5 pr-3 text-sm text-ink font-medium border-l border-ink/10 pl-2">
+                                    {value}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
                         </div>
                       ))}
                     </div>

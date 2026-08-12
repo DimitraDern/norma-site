@@ -4,12 +4,12 @@ import Reveal from "./Reveal.jsx";
 
 // Το πεδίο "img" δείχνει σε αρχείο μέσα στο public/images/.
 const products = [
-  { code: "01", title: "Συρματόπλεγμα", group: "Πλέγματα", img: "/images/product-01.jpg" },
-  { code: "02", title: "NORMA Panel", group: "Πλέγματα", img: "/images/product-02.jpg" },
-  { code: "03", title: "Σύρματα & Αγκαθωτά", group: "Ασφάλεια", img: "/images/product-03.png" },
-  { code: "04", title: "Πονταριστά", group: "Πλέγματα", img: "/images/product-04.png" },
-  { code: "05", title: "Κατασκευές Περιφράξεων", group: "Κατασκευές", img: "/images/product-05.png" },
-  { code: "06", title: "Χειράμαξες & Κάγκελα", group: "Εξοπλισμός", img: "/images/product-06.png" },
+  { code: "01", title: "Συρματόπλεγμα", group: "Πλέγματα", img: "/images/product-01.jpg", desc: "Πονταριστά, δικτυωτά, εξάγωνα — σε ρολό ή φύλλο." },
+  { code: "02", title: "NORMA Panel", group: "Πλέγματα", img: "/images/product-02.jpg", desc: "Ηλεκτροστατικά βαμμένα & γαλβανιζέ σε φύλλα 2,50." },
+  { code: "03", title: "Σύρματα & Αγκαθωτά", group: "Ασφάλεια", img: "/images/product-03.png", desc: "Ακανθωτά, κονσερτίνα, σύρματα γαλβανιζέ & χορτοδεσίας." },
+  { code: "04", title: "Πονταριστά", group: "Πλέγματα", img: "/images/product-04.png", desc: "Ηλεκτροσυγκολλητά γαλβανιζέ πλέγματα σε ρολό και φύλλο." },
+  { code: "05", title: "Κατασκευές Περιφράξεων", group: "Κατασκευές", img: "/images/product-05.png", desc: "Πλήρης κατασκευή & τοποθέτηση — οικόπεδα, φωτοβολταϊκά, NATO." },
+  { code: "06", title: "Χειράμαξες & Κάγκελα", group: "Εξοπλισμός", img: "/images/product-06.png", desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, πόρτες, gabion & διακοσμητικά." },
 ];
 
 const groups = ["Όλα", ...new Set(products.map((p) => p.group))];
@@ -62,6 +62,10 @@ export default function Products() {
                   </h3>
                   <span className="font-mono text-[10px] text-steel">{p.code}</span>
                 </div>
+                <p className="text-steel text-sm mt-1 mb-1.5">{p.desc}</p>
+                <span className="text-accent text-xs font-semibold inline-flex items-center gap-1 group-hover:underline">
+                  Δείτε περισσότερα →
+                </span>
               </Link>
             </Reveal>
           ))}

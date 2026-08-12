@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const links = [
   { label: "Αρχική", to: "/" },
@@ -10,9 +10,33 @@ const links = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  // Στην αρχική, το header είναι διάφανο πάνω από το βίντεο μέχρι να κάνει scroll ο χρήστης.
+  // Σε κάθε άλλη σελίδα παραμένει πάντα συμπαγές (δεν υπάρχει βίντεο από πίσω του να φανεί).
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+    function onScroll() {
+      setScrolled(window.scrollY > 40);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  const showSolidBg = scrolled || menuOpen;
 
   return (
-    <header className="sticky top-0 z-50 bg-ink">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 ${
+        showSolidBg ? "bg-ink" : "bg-gradient-to-b from-ink/60 via-ink/20 to-transparent"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/">
@@ -24,10 +48,10 @@ export default function Header() {
               NORMA S.A.
             </Link>
             <a
-              href="https://normasa.gr/"
+              
               target="_blank"
               rel="noreferrer"
-              className="block font-mono text-[9px] text-accent tracking-wide uppercase hover:underline"
+              className="block font-mono text-[9px] text-white/70 tracking-wide uppercase hover:text-white"
             >
               ΣΤΟΪΛΟΥΔΗΣ ΙΩΑΝΝΗΣ Α.Β.Ε.Ε.
             </a>
@@ -39,7 +63,7 @@ export default function Header() {
             <Link
               key={link.to}
               to={link.to}
-              className="font-mono text-xs uppercase tracking-[0.15em] text-white/60 hover:text-white transition-opacity"
+              className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-white/90 hover:text-white transition-opacity"
             >
               {link.label}
             </Link>
