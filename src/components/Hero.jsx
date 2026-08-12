@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { asset } from "../utils/asset.js";
 
 export default function Hero() {
   return (
@@ -43,7 +44,7 @@ export default function Hero() {
 
       {/* Πραγματική φωτο, edge-to-edge, κάτω από τον τίτλο -- καθαρά typographic/εικόνα, χωρίς επιπλέον διάκοσμο */}
       <img
-        src="/images/product-01.jpg"
+        src={asset("/images/product-01.jpg")}
         alt="Συρματόπλεγμα NORMA"
         className="w-full h-[38vh] sm:h-[46vh] object-cover"
       />

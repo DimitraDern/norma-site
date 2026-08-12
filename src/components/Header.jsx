@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { asset } from "../utils/asset.js";
 
 const links = [
   { label: "Αρχική", to: "/" },
@@ -41,20 +42,15 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link to="/">
             {/* Πραγματικό λογότυπο */}
-            <img src="/images/norma-logo.png" alt="NORMA S.A. λογότυπο" className="w-10 h-10 object-contain" />
+            <img src={asset("/images/norma-logo.png")} alt="NORMA S.A. λογότυπο" className="w-10 h-10 object-contain" />
           </Link>
           <div className="leading-tight">
             <Link to="/" className="block font-display font-600 text-white text-sm tracking-wide hover:text-accent transition-colors">
               NORMA S.A.
             </Link>
-            <a
-              
-              target="_blank"
-              rel="noreferrer"
-              className="block font-mono text-[9px] text-white/70 tracking-wide uppercase hover:text-white"
-            >
+            <span className="block font-mono text-[9px] text-white/70 tracking-wide uppercase">
               ΣΤΟΪΛΟΥΔΗΣ ΙΩΑΝΝΗΣ Α.Β.Ε.Ε.
-            </a>
+            </span>
           </div>
         </div>
 

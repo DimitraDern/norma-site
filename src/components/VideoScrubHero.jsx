@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./VideoScrubHero.css";
+import { asset } from "../utils/asset.js";
 
 /**
  * VideoScrubHero
@@ -124,7 +125,7 @@ export default function VideoScrubHero() {
   return (
     <div className="vsh-wrapper" ref={wrapperRef}>
       <div className="vsh-stage">
-        <video ref={videoRef} className="vsh-video" src="/hero.mp4" muted playsInline preload="auto" />
+        <video ref={videoRef} className="vsh-video" src={asset("/hero.mp4")} muted playsInline preload="auto" />
         <div className="vsh-shade" />
 
         <svg className="vsh-grain" xmlns="http://www.w3.org/2000/svg">

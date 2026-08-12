@@ -1,10 +1,11 @@
-export default function VideoHero() {
+
+import { asset } from "../utils/asset.js";export default function VideoHero() {
   return (
     <section className="relative h-screen overflow-hidden bg-ink">
       {/* Το βίντεο παίζει αυτόματα, σε loop, χωρίς ήχο */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/hero.mp4"
+        src={asset("/hero.mp4")}
         autoPlay
         loop
         muted
@@ -15,7 +16,6 @@ export default function VideoHero() {
 
       <div className="relative h-full flex items-center justify-center text-center px-6">
         <div className="max-w-2xl">
-          
           <h1 className="font-display font-700 text-5xl md:text-6xl text-white leading-tight mb-6">
             Συρματουργία Έβρου
             <br />
@@ -47,6 +47,7 @@ export default function VideoHero() {
         <div className="max-w-4xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-x-10 gap-y-2">
           {[
             ["1976", "Έτος ίδρυσης"],
+            ["5.000 τ.μ.", "Εργοστάσιο"],
             ["100%", "Ελληνική παραγωγή"],
             ["Πανελλαδικά", "& εξαγωγές"],
           ].map(([value, label]) => (

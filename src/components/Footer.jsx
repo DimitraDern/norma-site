@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { asset } from "../utils/asset.js";
 
 const socials = [
   { icon: Facebook, href: "#" },
@@ -12,7 +13,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
         {/* Λογότυπο + σύντομο μότο */}
         <div>
-          <img src="/images/norma-logo.png" alt="NORMA S.A." className="w-10 h-10 object-contain mb-3" />
+          <img src={asset("/images/norma-logo.png")} alt="NORMA S.A." className="w-10 h-10 object-contain mb-3" />
           <p className="font-display font-600 text-white text-sm">NORMA S.A.</p>
           <p className="text-white/40 text-xs mt-1">Συρματουργία Έβρου, από το 1976.</p>
         </div>

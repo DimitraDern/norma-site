@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Calendar, Award, Truck, Globe } from "lucide-react";
 import Reveal from "./Reveal.jsx";
 import AnimatedCounter from "./AnimatedCounter.jsx";
+import { asset } from "../utils/asset.js";
 
 const stats = [
   { icon: Calendar, value: "1976", label: "Έτος ίδρυσης" },
@@ -135,7 +136,7 @@ export default function About() {
         {/* Πραγματική φωτο του κτιρίου -- στυλ "About" με εικόνα δίπλα στο κείμενο */}
         <Reveal>
           <img
-            src="/images/hero-building.png"
+            src={asset("/images/hero-building.png")}
             alt="Το εργοστάσιο της NORMA"
             className="w-full rounded-sm border border-white/10 object-cover"
           />
