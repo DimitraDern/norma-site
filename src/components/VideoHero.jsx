@@ -47,7 +47,6 @@ import { asset } from "../utils/asset.js";export default function VideoHero() {
         <div className="max-w-4xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-x-10 gap-y-2">
           {[
             ["1976", "Έτος ίδρυσης"],
-            ["5.000 τ.μ.", "Εργοστάσιο"],
             ["100%", "Ελληνική παραγωγή"],
             ["Πανελλαδικά", "& εξαγωγές"],
           ].map(([value, label]) => (

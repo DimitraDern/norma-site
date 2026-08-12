@@ -1,48 +1,120 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import Reveal from "./Reveal.jsx";
 
 const rows = [
-  { icon: MapPin, label: "Διεύθυνση", value: "7ο χλμ. Διδυμότειχο – Αλεξανδρούπολη" },
-  { icon: Phone, label: "Τηλέφωνο", value: "+30 25xx xxx xxx" },
-  { icon: Mail, label: "Email", value: "info@evros-mreja.com" },
+  { icon: MapPin, label: "Διεύθυνση", value: "7ο χλμ. Διδυμότειχου – Αλεξανδρούπολης, Ελλάδα" },
+  { icon: Phone, label: "Τηλέφωνο", value: "+30 25530 31398", href: "tel:+302553031398" },
+  { icon: Mail, label: "Email", value: "normasa@otenet.gr", href: "mailto:normasa@otenet.gr" },
+];
+
+const socials = [
+  { icon: Facebook, href: "#" },
+  { icon: Instagram, href: "#" },
+  { icon: Linkedin, href: "#" },
 ];
 
 export default function ContactForm() {
   return (
-    <section id="contact" className="bg-ink py-24">
-      <div className="max-w-xl mx-auto px-6">
+    <section id="contact" className="bg-paper mesh-line-bg py-24">
+      <div className="max-w-4xl mx-auto px-6">
         <Reveal>
-          {/* Μεγάλη ετικέτα-αποστολής, σαν label δέματος */}
-          <div className="tag-card p-8 md:p-10 -rotate-1" style={{ "--rot": "-1deg" }}>
-            <div className="pt-3 flex items-center justify-between mb-6">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-steel">Ετικέτα Επικοινωνίας</span>
-              <span className="font-mono text-[10px] text-accent">No. 01</span>
+          {/* Ολόκληρο το section είναι ΜΙΑ μεγάλη "ετικέτα" -- η ίδια γλώσσα
+              σχεδίασης με τις υπόλοιπες κάρτες/tags του site, εδώ σε μεγάλη κλίμακα */}
+          <div className="tag-card relative overflow-hidden">
+            {/* Απαλό accent φως στην πάνω γωνία -- σπάει το flat λευκό */}
+            <div
+              className="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20"
+              style={{ background: "radial-gradient(circle, rgba(31,95,168,0.8), transparent 70%)" }}
+            />
+
+            <div className="relative pt-10 px-8 md:px-12 pb-2 text-center">
+              <p className="font-mono text-accent text-xs tracking-[0.25em] uppercase mb-3">Επικοινωνία</p>
+              <h2 className="font-display font-700 text-3xl md:text-4xl text-ink">Βρείτε μας</h2>
             </div>
 
-            <h2 className="font-display font-700 text-3xl text-ink mb-2">Ας μιλήσουμε.</h2>
-            <p className="text-steel text-sm mb-7">
-              Στείλτε μας τις προδιαγραφές του έργου σας — απάντηση εντός 24 ωρών.
-            </p>
+            <div className="border-t border-dashed border-ink/15 mt-8 grid md:grid-cols-2 gap-10 px-8 md:px-12 pb-10 pt-8">
+              {/* Αριστερά: στοιχεία επικοινωνίας + social */}
+              <div>
+                <div className="space-y-6">
+                  {rows.map((r) => {
+                    const Icon = r.icon;
+                    const content = (
+                      <>
+                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                          <Icon size={18} className="text-accent" />
+                        </div>
+                        <div>
+                          <div className="font-mono text-[10px] uppercase tracking-wide text-steel">{r.label}</div>
+                          <div className="text-ink font-medium">{r.value}</div>
+                        </div>
+                      </>
+                    );
+                    return r.href ? (
+                      <a key={r.label} href={r.href} className="flex items-center gap-4 group">
+                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0 transition-colors group-hover:bg-accent group-hover:text-white">
+                          <Icon size={18} className="text-accent group-hover:text-white transition-colors" />
+                        </div>
+                        <div>
+                          <div className="font-mono text-[10px] uppercase tracking-wide text-steel">{r.label}</div>
+                          <div className="text-ink font-medium group-hover:text-accent transition-colors">{r.value}</div>
+                        </div>
+                      </a>
+                    ) : (
+                      <div key={r.label} className="flex items-center gap-4">{content}</div>
+                    );
+                  })}
+                </div>
 
-            <div className="border-t border-dashed border-ink/20 pt-6 space-y-4">
-              {rows.map((r) => {
-                const Icon = r.icon;
-                return (
-                  <div key={r.label} className="flex items-center gap-3">
-                    <Icon size={16} className="text-accent shrink-0" />
-                    <span className="font-mono text-xs text-steel w-20 shrink-0">{r.label}</span>
-                    <span className="text-ink text-sm">{r.value}</span>
+                <div className="mt-9">
+                  <div className="font-mono text-[10px] uppercase tracking-wide text-steel mb-3">Ακολουθήστε μας</div>
+                  <div className="flex gap-3">
+                    {socials.map((s, i) => {
+                      const Icon = s.icon;
+                      return (
+                        <a
+                          key={i}
+                          href={s.href}
+                          aria-label="social link"
+                          className="w-10 h-10 rounded-full border border-ink/15 flex items-center justify-center text-steel hover:text-white hover:bg-accent hover:border-accent transition-colors"
+                        >
+                          <Icon size={16} />
+                        </a>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              </div>
+
+              {/* Δεξιά: πραγματικός χάρτης, με "ετικέτα" περιθώριο ταιριαστό με το θέμα */}
+              <div className="relative rounded-sm overflow-hidden border border-ink/15 aspect-[4/3] md:aspect-auto">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=NORMA+S.A.+Didymoteicho+Alexandroupoli+Greece"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute top-3 left-3 z-10 bg-white text-ink text-xs font-semibold px-3 py-1.5 rounded shadow flex items-center gap-1 hover:bg-accent hover:text-white transition-colors"
+                >
+                  Άνοιγμα στο Maps ↗
+                </a>
+                <iframe
+                  title="Χάρτης τοποθεσίας NORMA S.A."
+                  className="w-full h-full min-h-[280px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=NORMA+S.A.+Didymoteicho+Alexandroupoli+Greece&output=embed"
+                />
+              </div>
             </div>
 
-            <a
-              href="mailto:info@evros-mreja.com"
-              className="mt-8 inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-sm transition-all hover:-translate-y-0.5"
-            >
-              Στείλτε email →
-            </a>
+            {/* Κάτω μπάρα CTA -- ενσωματωμένη μέσα στην ίδια "ετικέτα" */}
+            <div className="border-t border-dashed border-ink/15 px-8 md:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-ink/[0.03]">
+              <p className="text-steel text-sm">Στείλτε μας τις προδιαγραφές του έργου σας — απάντηση εντός 24 ωρών.</p>
+              <a
+                href="mailto:normasa@otenet.gr"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-sm transition-all hover:-translate-y-0.5 shrink-0"
+              >
+                Στείλτε email 
+              </a>
+            </div>
           </div>
         </Reveal>
       </div>

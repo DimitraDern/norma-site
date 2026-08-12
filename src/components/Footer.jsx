@@ -30,9 +30,9 @@ export default function Footer() {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-wide text-accent mb-2">Επικοινωνία</p>
           <p className="text-white/50 text-sm leading-relaxed">
-            <a href="tel:+3025xxxxxxxx" className="hover:text-white transition-colors">+30 25xx xxx xxx</a>
+            <a href="tel:+302553031398"  className="hover:text-white transition-colors">+30 2553 031 398</a>
             <br />
-            <a href="mailto:info@evros-mreja.com" className="hover:text-white transition-colors">info@evros-mreja.com</a>
+            <a href="mailto:normasa@otenet.gr" className="hover:text-white transition-colors">normasa@otenet.gr</a>
           </p>
         </div>
 
