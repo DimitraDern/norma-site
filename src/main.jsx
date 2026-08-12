@@ -6,7 +6,8 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* Το basename πρέπει να ταιριάζει με το base του vite.config.js */}
+    <BrowserRouter basename="/norma-site/">
       <App />
     </BrowserRouter>
   </React.StrictMode>

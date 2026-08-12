@@ -11,8 +11,24 @@
     <meta property="og:title" content="NORMA S.A. — Συρματουργία Έβρου | Συρματοπλέγματα & Περιφράξεις από το 1976" />
     <meta property="og:description" content="Κατασκευαστής τελών δικτύων και μεταλλικών κατασκευών από το 1976." />
     <meta property="og:type" content="website" />
- 
-    
+
+    <!-- Συνέχεια της τεχνικής "spa-github-pages": ξαναγράφει το URL στη σωστή
+         μορφή ΠΡΙΝ φορτώσει το React Router, ώστε το routing να δουλέψει κανονικά -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
