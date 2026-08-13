@@ -21,36 +21,55 @@ function StatsCarousel() {
 
   const wrapperRef = useRef(null);
   const rowRef = useRef(null);
-  const [translateX, setTranslateX] = useState(0);
+  const cardRefs = useRef([]);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    function onScroll() {
+    let rafId;
+
+    function loop() {
       const wrapper = wrapperRef.current;
       const row = rowRef.current;
-      if (!wrapper || !row) return;
 
-      const rect = wrapper.getBoundingClientRect();
-      const total = wrapper.offsetHeight - window.innerHeight;
-      if (total <= 0) return;
+      if (wrapper && row) {
+        const rect = wrapper.getBoundingClientRect();
+        const total = wrapper.offsetHeight - window.innerHeight;
 
-      const scrolled = -rect.top;
-      const p = Math.min(1, Math.max(0, scrolled / total));
-      setProgress(p);
+        if (total > 0) {
+          const scrolled = -rect.top;
+          const p = Math.min(1, Math.max(0, scrolled / total));
+          setProgress(p);
 
-      const maxTranslate = Math.max(0, row.scrollWidth - window.innerWidth);
-      setTranslateX(-p * maxTranslate);
-      setActive(Math.round(p * (stats.length - 1)));
+          const maxTranslate = Math.max(0, row.scrollWidth - window.innerWidth);
+          const x = -p * maxTranslate;
+          // Άμεση εφαρμογή στο DOM κάθε frame -- πιο σταθερό από scroll-event
+          // listeners, που μπορούν να "χάσουν" events σε κινητά (momentum
+          // scrolling, address bar collapse κλπ).
+          row.style.transform = `translateX(${x}px)`;
+
+          const viewportCenter = window.innerWidth / 2;
+          let closestIdx = 0;
+          let closestDist = Infinity;
+          cardRefs.current.forEach((el, i) => {
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            const cardCenter = r.left + r.width / 2;
+            const dist = Math.abs(cardCenter - viewportCenter);
+            if (dist < closestDist) {
+              closestDist = dist;
+              closestIdx = i;
+            }
+          });
+          setActive(closestIdx);
+        }
+      }
+
+      rafId = requestAnimationFrame(loop);
     }
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    rafId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (
@@ -82,14 +101,14 @@ function StatsCarousel() {
 
         <div
           ref={rowRef}
-          className="relative flex items-end gap-10 pl-[12vw] pr-[12vw]"
-          style={{ transform: `translateX(${translateX}px)` }}
+          className="relative flex items-end gap-10 self-start"
+          style={{ paddingLeft: "calc(50vw - 128px)", paddingRight: "calc(50vw - 128px)" }}
         >
           {stats.map((s, i) => {
             const Icon = s.icon;
             const isActive = i === active;
             return (
-              <div key={s.label} className="flex flex-col items-center">
+              <div key={s.label} ref={(el) => (cardRefs.current[i] = el)} className="flex flex-col items-center">
                 <div
                   className={`tag-card w-64 shrink-0 px-6 py-8 text-center transition-all duration-500 ease-out ${
                     isActive
