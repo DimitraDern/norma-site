@@ -63,14 +63,9 @@ function StatCard({ stat, isActive, cardRef }) {
 
 function SectionHeading({ t }) {
   return (
-    <>
-      <p className="relative font-mono text-accent text-xs tracking-[0.25em] uppercase mb-3">
-        {t("about.journeyKicker")}
-      </p>
-      <h2 className="relative font-display font-700 text-3xl md:text-5xl text-white mb-14 text-center px-6">
-        {t("about.journeyTitleA")} <span className="text-accent italic">NORMA</span> {t("about.journeyTitleB")}
-      </h2>
-    </>
+    <h2 className="relative font-display font-700 text-3xl md:text-5xl text-white mb-14 text-center px-6">
+      {t("about.journeyTitleA")} <span className="text-accent italic">NORMA</span> {t("about.journeyTitleB")}
+    </h2>
   );
 }
 
