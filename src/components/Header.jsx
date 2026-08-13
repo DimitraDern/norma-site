@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { asset } from "../utils/asset.js";
-
-const links = [
-  { label: "Αρχική", to: "/" },
-  { label: "Εταιρεία", to: "/#about" },
-  { label: "Προϊόντα", to: "/products" },
-  { label: "Επικοινωνία", to: "/#contact" },
-];
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
   const isHome = pathname === "/";
+  const { lang, setLang, t } = useLanguage();
+
+  const links = [
+    { label: t("nav.home"), to: "/" },
+    { label: t("nav.company"), to: "/#about" },
+    { label: t("nav.products"), to: "/products" },
+    { label: t("nav.contact"), to: "/#contact" },
+  ];
 
   // Στην αρχική, το header είναι διάφανο πάνω από το βίντεο μέχρι να κάνει scroll ο χρήστης.
   // Σε κάθε άλλη σελίδα παραμένει πάντα συμπαγές (δεν υπάρχει βίντεο από πίσω του να φανεί).
@@ -66,25 +68,44 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link
-          to="/#contact"
-          className="hidden md:inline-block bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-4 py-2 rounded-sm transition-colors"
-        >
-          Ζητήστε προσφορά
-        </Link>
-
-        <button
-          onClick={() => setMenuOpen((v) => !v)}
-          className="md:hidden text-white p-2"
-          aria-label={menuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
-          aria-expanded={menuOpen}
-        >
-          <div className="w-6 flex flex-col gap-1.5">
-            <span className={`block h-0.5 bg-white rounded transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`block h-0.5 bg-white rounded transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-            <span className={`block h-0.5 bg-white rounded transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        <div className="flex items-center gap-4">
+          {/* Κουμπί αλλαγής γλώσσας -- EL / EN */}
+          <div className="hidden sm:flex items-center gap-1.5 font-mono text-xs">
+            <button
+              onClick={() => setLang("el")}
+              className={`transition-colors ${lang === "el" ? "text-white font-bold" : "text-white/40 hover:text-white/70"}`}
+            >
+              EL
+            </button>
+            <span className="text-white/30">/</span>
+            <button
+              onClick={() => setLang("en")}
+              className={`transition-colors ${lang === "en" ? "text-white font-bold" : "text-white/40 hover:text-white/70"}`}
+            >
+              EN
+            </button>
           </div>
-        </button>
+
+          <Link
+            to="/#contact"
+            className="hidden md:inline-block bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 shadow-[0_0_0_0_rgba(31,95,168,0)] hover:shadow-[0_0_25px_6px_rgba(31,95,168,0.55)]"
+          >
+            {t("nav.cta")}
+          </Link>
+
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden text-white p-2"
+            aria-label={menuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
+            aria-expanded={menuOpen}
+          >
+            <div className="w-6 flex flex-col gap-1.5">
+              <span className={`block h-0.5 bg-white rounded transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 bg-white rounded transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+              <span className={`block h-0.5 bg-white rounded transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </div>
+          </button>
+        </div>
       </div>
 
       <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 bg-ink-light ${menuOpen ? "max-h-96" : "max-h-0"}`}>
@@ -94,6 +115,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {/* Κουμπί γλώσσας και στο mobile μενού */}
+          <div className="flex items-center gap-1.5 font-mono text-xs pt-2 border-t border-white/10 mt-2">
+            <button onClick={() => setLang("el")} className={lang === "el" ? "text-white font-bold" : "text-white/40"}>EL</button>
+            <span className="text-white/30">/</span>
+            <button onClick={() => setLang("en")} className={lang === "en" ? "text-white font-bold" : "text-white/40"}>EN</button>
+          </div>
         </nav>
       </div>
     </header>

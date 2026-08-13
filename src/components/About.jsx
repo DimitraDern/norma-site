@@ -3,13 +3,7 @@ import { Calendar, Award, Truck, Globe } from "lucide-react";
 import Reveal from "./Reveal.jsx";
 import AnimatedCounter from "./AnimatedCounter.jsx";
 import { asset } from "../utils/asset.js";
-
-const stats = [
-  { icon: Calendar, value: "1976", label: "Έτος ίδρυσης" },
-  { icon: Award, value: "48+", label: "Χρόνια εμπειρίας" },
-  { icon: Truck, value: "Πανελλαδικά", label: "Διανομή" },
-  { icon: Globe, value: "Διεθνώς", label: "Εξαγωγές" },
-];
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 /* Το ΚΑΝΟΝΙΚΟ κάθετο scroll της σελίδας κινεί τη σειρά καρτών οριζόντια
    (σαν Apple-style section) -- όσο ο χρήστης κάνει scroll προς τα κάτω,
@@ -17,6 +11,14 @@ const stats = [
    γλιστράει προς τα αριστερά. Όποια κάρτα βρίσκεται πιο κοντά στο κέντρο
    της οθόνης "πετάγεται" μπροστά. */
 function StatsCarousel() {
+  const { t } = useLanguage();
+  const stats = [
+    { icon: Calendar, value: t("about.stat1v"), label: t("about.stat1l") },
+    { icon: Award, value: t("about.stat2v"), label: t("about.stat2l") },
+    { icon: Truck, value: t("about.stat3v"), label: t("about.stat3l") },
+    { icon: Globe, value: t("about.stat4v"), label: t("about.stat4l") },
+  ];
+
   const wrapperRef = useRef(null);
   const rowRef = useRef(null);
   const [translateX, setTranslateX] = useState(0);
@@ -72,10 +74,10 @@ function StatsCarousel() {
 
         {/* Kicker + τίτλος -- ίδιο μοτίβο με τα άλλα sections του site */}
         <p className="relative font-mono text-accent text-xs tracking-[0.25em] uppercase mb-3">
-          48 χρόνια πορείας
+          {t("about.journeyKicker")}
         </p>
         <h2 className="relative font-display font-700 text-3xl md:text-5xl text-white mb-14 text-center px-6">
-          Η Πορεία της <span className="text-accent italic">NORMA</span> Α.Ε.
+          {t("about.journeyTitleA")} <span className="text-accent italic">NORMA</span> {t("about.journeyTitleB")}
         </h2>
 
         <div
@@ -130,30 +132,34 @@ function StatsCarousel() {
 }
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="bg-ink">
-      <div className="pt-24 pb-16 max-w-5xl mx-auto px-6 mb-4 grid md:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
-        {/* Πραγματική φωτο του κτιρίου -- στυλ "About" με εικόνα δίπλα στο κείμενο */}
+      <div className="pt-24 pb-16 max-w-5xl mx-auto px-6 mb-4 grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+        {/* Αριστερά: κείμενο, με έμφαση χρώματος μέσα στον τίτλο */}
         <Reveal>
-          <img
-            src={asset("/images/hero-building.png")}
-            alt="Το εργοστάσιο της NORMA"
-            className="w-full rounded-sm border border-white/10 object-cover"
-          />
+          <h2 className="font-display font-700 text-3xl md:text-[2.6rem] leading-[1.15] text-white mb-6">
+            {t("about.titleA")} <span className="text-accent">{t("about.titleB")}</span>
+          </h2>
+          <p className="text-white/50 leading-relaxed">{t("about.body")}</p>
         </Reveal>
 
+        {/* Δεξιά: η φωτο σε σχήμα "αψίδας", πάνω σε two-tone accent φόντο -- ίδια δομή
+            με το πρότυπο που έστειλες, με τα χρώματα του site */}
         <Reveal delay={100}>
-          <p className="font-mono text-accent text-xs tracking-[0.2em] uppercase mb-4">Η Εταιρεία</p>
-          <h2 className="font-display font-700 text-3xl md:text-4xl text-white mb-5">
-            Τρεις γενιές, ένα εργοστάσιο.
-          </h2>
-          <p className="text-white/50 leading-relaxed mb-6">
-            Από το 1976 η ΝΟRΜΑ Α.Ε. είναι εργοστάσιο με κύριο αντικείμενο την παραγωγή συρματοπλεγμάτων περίφραξης.
-            Πραγματοποιώντας μια σειρά επενδύσεων, έχει κατορθώσει να βρίσκεται σήμερα στην πρώτη θέση στον κλάδο της συρματουργίας στην Ελλάδα.
-          </p>
-          <a href="#products" className="text-accent font-semibold hover:underline">
-            Περισσότερα για εμάς →
-          </a>
+          <div className="relative aspect-[4/5] flex items-end justify-center">
+            {/* Βάση: ορθογώνιο σε accent χρώμα */}
+            <div className="absolute inset-0 bg-accent/90 rounded-sm" />
+            {/* Δεύτερος τόνος: πιο ανοιχτός κύκλος στην πάνω-δεξιά γωνία */}
+            <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent-light/40" />
+            {/* Η φωτο, κομμένη σε σχήμα αψίδας */}
+            <img
+              src={asset("/images/aboutPic.png")}
+              alt="Συρματουργία NORMA — εγκαταστάσεις παραγωγής"
+              className="relative w-[82%] h-[90%] object-cover rounded-t-[50%] shadow-2xl"
+            />
+          </div>
         </Reveal>
       </div>
 

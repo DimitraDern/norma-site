@@ -1,19 +1,23 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import Reveal from "./Reveal.jsx";
-
-const rows = [
-  { icon: MapPin, label: "Διεύθυνση", value: "7ο χλμ. Διδυμότειχου – Αλεξανδρούπολης, Ελλάδα" },
-  { icon: Phone, label: "Τηλέφωνο", value: "+30 25530 31398", href: "tel:+302553031398" },
-  { icon: Mail, label: "Email", value: "normasa@otenet.gr", href: "mailto:normasa@otenet.gr" },
-];
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 const socials = [
-  { icon: Facebook, href: "#" },
-  { icon: Instagram, href: "#" },
-  { icon: Linkedin, href: "#" },
+  { icon: Facebook, href: "https://www.facebook.com/share/17xY3fURaH/" },
+  { icon: Instagram, href: "https://www.instagram.com/normasagr?igsh=Njdoczl1eXdvcG43" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/normawire" },
+  { icon: Youtube, href: "https://www.youtube.com/@NORMASAEVROSWIRES" },
 ];
 
 export default function ContactForm() {
+  const { t } = useLanguage();
+
+  const rows = [
+    { icon: MapPin, label: t("contact.addressLabel"), value: t("contact.addressValue") },
+    { icon: Phone, label: t("contact.phoneLabel"), value: "+30 25530 31398", href: "tel:+302553031398" },
+    { icon: Mail, label: t("contact.emailLabel"), value: "normasa@otenet.gr", href: "mailto:normasa@otenet.gr" },
+  ];
+
   return (
     <section id="contact" className="bg-paper mesh-line-bg py-24">
       <div className="max-w-4xl mx-auto px-6">
@@ -28,8 +32,8 @@ export default function ContactForm() {
             />
 
             <div className="relative pt-10 px-8 md:px-12 pb-2 text-center">
-              <p className="font-mono text-accent text-xs tracking-[0.25em] uppercase mb-3">Επικοινωνία</p>
-              <h2 className="font-display font-700 text-3xl md:text-4xl text-ink">Βρείτε μας</h2>
+              <p className="font-mono text-accent text-xs tracking-[0.25em] uppercase mb-3">{t("contact.kicker")}</p>
+              <h2 className="font-display font-700 text-3xl md:text-4xl text-ink">{t("contact.heading")}</h2>
             </div>
 
             <div className="border-t border-dashed border-ink/15 mt-8 grid md:grid-cols-2 gap-10 px-8 md:px-12 pb-10 pt-8">
@@ -66,7 +70,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-9">
-                  <div className="font-mono text-[10px] uppercase tracking-wide text-steel mb-3">Ακολουθήστε μας</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wide text-steel mb-3">{t("contact.followUs")}</div>
                   <div className="flex gap-3">
                     {socials.map((s, i) => {
                       const Icon = s.icon;
@@ -74,6 +78,8 @@ export default function ContactForm() {
                         <a
                           key={i}
                           href={s.href}
+                          target="_blank"
+                          rel="noreferrer"
                           aria-label="social link"
                           className="w-10 h-10 rounded-full border border-ink/15 flex items-center justify-center text-steel hover:text-white hover:bg-accent hover:border-accent transition-colors"
                         >
@@ -93,7 +99,7 @@ export default function ContactForm() {
                   rel="noreferrer"
                   className="absolute top-3 left-3 z-10 bg-white text-ink text-xs font-semibold px-3 py-1.5 rounded shadow flex items-center gap-1 hover:bg-accent hover:text-white transition-colors"
                 >
-                  Άνοιγμα στο Maps ↗
+                  {t("contact.openMaps")}
                 </a>
                 <iframe
                   title="Χάρτης τοποθεσίας NORMA S.A."
@@ -107,12 +113,12 @@ export default function ContactForm() {
 
             {/* Κάτω μπάρα CTA -- ενσωματωμένη μέσα στην ίδια "ετικέτα" */}
             <div className="border-t border-dashed border-ink/15 px-8 md:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-ink/[0.03]">
-              <p className="text-steel text-sm">Στείλτε μας τις προδιαγραφές του έργου σας — απάντηση εντός 24 ωρών.</p>
+              <p className="text-steel text-sm">{t("contact.ctaText")}</p>
               <a
                 href="mailto:normasa@otenet.gr"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-sm transition-all hover:-translate-y-0.5 shrink-0"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shrink-0"
               >
-                Στείλτε email 
+                {t("contact.ctaBtn")}
               </a>
             </div>
           </div>

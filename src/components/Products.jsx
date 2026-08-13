@@ -1,25 +1,37 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, LayoutGrid, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
 import Reveal from "./Reveal.jsx";
 import { asset } from "../utils/asset.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 // Το πεδίο "img" δείχνει σε αρχείο μέσα στο public/images/.
-const products = [
-  { code: "01", title: "Συρματόπλεγμα", group: "Πλέγματα", img: asset("/images/product-01.jpg"), desc: "Πονταριστά, δικτυωτά, εξάγωνα — σε ρολό ή φύλλο." },
-  { code: "02", title: "NORMA Panel", group: "Πλέγματα", img: asset("/images/product-02.jpg"), desc: "Ηλεκτροστατικά βαμμένα & γαλβανιζέ σε φύλλα 2,50." },
-  { code: "03", title: "Σύρματα & Αγκαθωτά", group: "Ασφάλεια", img: asset("/images/product-03.png"), desc: "Ακανθωτά, κονσερτίνα, σύρματα γαλβανιζέ & χορτοδεσίας." },
-  { code: "04", title: "Πονταριστά", group: "Πλέγματα", img: asset("/images/product-04.png"), desc: "Ηλεκτροσυγκολλητά γαλβανιζέ πλέγματα σε ρολό και φύλλο." },
-  { code: "05", title: "Κατασκευές Περιφράξεων", group: "Κατασκευές", img: asset("/images/product-05.png"), desc: "Πλήρης κατασκευή & τοποθέτηση — οικόπεδα, φωτοβολταϊκά, NATO." },
-  { code: "06", title: "Χειράμαξες & Κάγκελα", group: "Εξοπλισμός", img: asset("/images/product-06.png"), desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, πόρτες, gabion & διακοσμητικά." },
+// Το groupKey είναι σταθερό (αγγλικό) -- έτσι το φιλτράρισμα δεν "σπάει"
+// όταν αλλάζει η γλώσσα εμφάνισης. Το κείμενο (title/desc/label ομάδας)
+// έρχεται από το λεξικό μεταφράσεων μέσω t("products...").
+const productMeta = [
+  { code: "01", groupKey: "mesh", img: asset("/images/product-01.jpg") },
+  { code: "02", groupKey: "mesh", img: asset("/images/product-02.jpg") },
+  { code: "03", groupKey: "security", img: asset("/images/product-03.png") },
+  { code: "04", groupKey: "mesh", img: asset("/images/product-04.png") },
+  { code: "05", groupKey: "constructions", img: asset("/images/product-05.png") },
+  { code: "06", groupKey: "equipment", img: asset("/images/product-06.png") },
 ];
 
-const groups = ["Όλα", ...new Set(products.map((p) => p.group))];
+const groupKeys = ["all", ...new Set(productMeta.map((p) => p.groupKey))];
 
 export default function Products() {
-  const [active, setActive] = useState("Όλα");
+  const { t } = useLanguage();
+
+  const products = productMeta.map((p) => ({
+    ...p,
+    title: t(`products.items.${p.code}.title`),
+    desc: t(`products.items.${p.code}.desc`),
+  }));
+
+  const [active, setActive] = useState("all");
   const [index, setIndex] = useState(0);
-  const filtered = active === "Όλα" ? products : products.filter((p) => p.group === active);
+  const filtered = active === "all" ? products : products.filter((p) => p.groupKey === active);
   const n = filtered.length;
 
   function selectGroup(g) {
@@ -65,14 +77,14 @@ export default function Products() {
   return (
     <section id="products" className="bg-ink py-24 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
-        <p className="font-mono text-accent text-xs tracking-[0.2em] uppercase mb-3">Κατάλογος</p>
+        <p className="font-mono text-accent text-xs tracking-[0.2em] uppercase mb-3">{t("products.kicker")}</p>
         <Reveal className="mb-8">
-          <h2 className="font-display font-700 text-3xl md:text-4xl text-white">Η γκάμα μας</h2>
+          <h2 className="font-display font-700 text-3xl md:text-4xl text-white">{t("products.heading")}</h2>
         </Reveal>
 
         <Reveal delay={60} className="mb-14">
           <div className="flex flex-wrap gap-2">
-            {groups.map((g) => (
+            {groupKeys.map((g) => (
               <button
                 key={g}
                 onClick={() => selectGroup(g)}
@@ -82,7 +94,7 @@ export default function Products() {
                     : "text-white/50 hover:text-white border border-white/15"
                 }`}
               >
-                {g}
+                {t(`products.groups.${g === "all" ? "all" : g}`)}
               </button>
             ))}
           </div>
@@ -190,13 +202,12 @@ export default function Products() {
                 <LayoutGrid className="text-accent" size={22} strokeWidth={1.75} />
               </div>
               <div className="pt-2">
-                <div className="font-display font-700 text-lg text-ink">Δείτε όλο τον κατάλογο</div>
-                <div className="font-mono text-xs text-steel">16 κατηγορίες &middot; εκατοντάδες προϊόντα</div>
+                <div className="font-display font-700 text-lg text-ink">{t("products.viewAllTitle")}</div>
+                <div className="font-mono text-xs text-steel">{t("products.viewAllSub")}</div>
               </div>
             </div>
-            <span className="inline-flex items-center gap-2 bg-accent group-hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-sm transition-colors shrink-0">
-              Άνοιγμα καταλόγου
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <span className="inline-flex items-center gap-2 bg-accent group-hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-full transition-colors shrink-0">
+              {t("products.viewAllBtn")}
             </span>
           </Link>
         </Reveal>
