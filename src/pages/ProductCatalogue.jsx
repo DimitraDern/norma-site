@@ -406,19 +406,19 @@ export default function ProductCatalogue() {
       </div>
 
       <div className="bg-paper py-10">
-        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((cat) => {
             const isOpen = openCodes.has(cat.code);
             return (
               <div key={cat.code} className="bg-tag border border-ink/12 rounded-sm overflow-hidden flex flex-col">
                 <ImageCarousel images={cat.images} alt={cat.title} labels={catalogueLabels} />
-                <div className="p-5 flex flex-col">
+                <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-display font-600 text-lg text-ink mb-1">{cat.title}</h3>
                   <p className="text-steel text-xs italic leading-relaxed mb-2">{cat.tagline}</p>
                   <p className="text-steel text-sm leading-relaxed mb-4">{cat.desc}</p>
                   <button
                     onClick={() => toggleCode(cat.code)}
-                    className="text-accent text-sm font-semibold flex items-center gap-1 hover:underline self-start"
+                    className="text-accent text-sm font-semibold flex items-center gap-1 hover:underline self-start mt-auto"
                   >
                     {lang === "en" ? `View ${cat.variants.length} products` : `Δείτε τα ${cat.variants.length} προϊόντα`}
                     <span className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>⌄</span>
