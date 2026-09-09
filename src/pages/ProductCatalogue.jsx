@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Link2 } from "lucide-react";
 import { asset } from "../utils/asset.js";
 import { useLanguage } from "../i18n/LanguageContext.jsx";
 
@@ -305,6 +306,27 @@ const categoriesEn = [
     ] },
 ];
 
+const categoryAnchors = {
+  "01": "pontarista",
+  "02": "diktyota",
+  "03": "plegma-fyllo",
+  "04": "panel",
+  "05": "exagono",
+  "06": "akanthota",
+  "07": "konsertina",
+  "08": "syrmata",
+  "09": "passaloi-solines",
+  "10": "karfia-velonakia",
+  "11": "gabion",
+  "12": "kagkela-portes",
+  "13": "xeiramaxes",
+  "14": "kataskeves-perifraxeon",
+  "15": "agrotikes",
+  "16": "diakosmitikes",
+};
+
+const SITE_PRODUCTS_URL = "https://normasa.gr/products";
+
 const groupKeys = ["all", "mesh", "security", "materials", "constructions", "equipment"];
 const groupLabels = {
   el: { all: "Όλα", mesh: "Πλέγματα", security: "Ασφάλεια", materials: "Υλικά", constructions: "Κατασκευές", equipment: "Εξοπλισμός" },
@@ -326,7 +348,7 @@ function ImageCarousel({ images, alt, labels }) {
 
   return (
     <div className="relative w-full h-40 border-b border-ink/10 overflow-hidden group">
-      <img src={images[index]} alt={alt} className="w-full h-full object-cover" />
+      <img src={images[index]} alt={`${alt} — εικόνα προϊόντος ${index + 1}`} className="w-full h-full object-cover" />
       {hasMultiple && (
         <>
           <button onClick={prev} aria-label={labels.prevImage} className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ink/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -351,6 +373,18 @@ export default function ProductCatalogue() {
   const categories = lang === "en" ? categoriesEn : categoriesEl;
   const [activeGroup, setActiveGroup] = useState("all");
   const [openCodes, setOpenCodes] = useState(new Set());
+  const [copiedAnchor, setCopiedAnchor] = useState(null);
+  const [toastMessage, setToastMessage] = useState("");
+
+  useEffect(() => {
+    if (!toastMessage) return undefined;
+
+    const timeoutId = window.setTimeout(() => {
+      setToastMessage("");
+    }, 2200);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [toastMessage]);
 
   function toggleCode(code) {
     setOpenCodes((prev) => {
@@ -363,6 +397,45 @@ export default function ProductCatalogue() {
 
   const filtered = activeGroup === "all" ? categories : categories.filter((c) => c.groupKey === activeGroup);
 
+  async function copyCategoryLink(anchorId) {
+    const url = `${SITE_PRODUCTS_URL}#${anchorId}`;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+
+    const successMessage = lang === "en" ? "The link was copied successfully." : "Ο σύνδεσμος αντιγράφηκε με επιτυχία.";
+    setToastMessage(successMessage);
+    setCopiedAnchor(anchorId);
+    window.setTimeout(() => setCopiedAnchor((current) => (current === anchorId ? null : current)), 1800);
+  }
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": lang === "en" ? "NORMA S.A. Product Categories" : "Κατηγορίες Προϊόντων NORMA S.A.",
+    "url": SITE_PRODUCTS_URL,
+    "numberOfItems": categories.length,
+    "itemListElement": categories.map((cat, index) => {
+      const anchorId = categoryAnchors[cat.code];
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": cat.title,
+        "url": `${SITE_PRODUCTS_URL}#${anchorId}`,
+      };
+    }),
+  };
+
   const catalogueLabels = {
     prevImage: lang === "en" ? "Previous image" : "Προηγούμενη εικόνα",
     nextImage: lang === "en" ? "Next image" : "Επόμενη εικόνα",
@@ -370,6 +443,8 @@ export default function ProductCatalogue() {
 
   return (
     <div>
+      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+
       <div className="bg-ink pt-32 pb-14">
         <div className="max-w-6xl mx-auto px-6">
           <Link to="/" className="font-mono text-xs text-accent hover:underline">
@@ -406,16 +481,54 @@ export default function ProductCatalogue() {
       </div>
 
       <div className="bg-paper py-10">
+        {toastMessage && (
+          <div
+            role="status"
+            aria-live="polite"
+            className="pointer-events-none fixed bottom-5 right-5 z-50 rounded-xl border border-emerald-300/80 bg-[#dff6e8] px-4 py-3 text-sm font-medium text-emerald-900 shadow-lg shadow-emerald-900/10 animate-toast"
+          >
+            {toastMessage}
+          </div>
+        )}
+
         <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((cat) => {
             const isOpen = openCodes.has(cat.code);
+            const anchorId = categoryAnchors[cat.code];
+            const seoDescription = [cat.tagline, cat.desc].filter(Boolean).join(" ");
+            const isCopied = copiedAnchor === anchorId;
             return (
-              <div key={cat.code} className="bg-tag border border-ink/12 rounded-sm overflow-hidden flex flex-col">
-                <ImageCarousel images={cat.images} alt={cat.title} labels={catalogueLabels} />
+              <section id={anchorId} key={cat.code} className="bg-tag border border-ink/12 rounded-sm overflow-hidden flex flex-col scroll-mt-28">
+                <ImageCarousel
+                  images={cat.images}
+                  alt={`${cat.title}. ${seoDescription}`}
+                  labels={catalogueLabels}
+                />
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-display font-600 text-lg text-ink mb-1">{cat.title}</h3>
-                  <p className="text-steel text-xs italic leading-relaxed mb-2">{cat.tagline}</p>
-                  <p className="text-steel text-sm leading-relaxed mb-4">{cat.desc}</p>
+                  <div className="flex items-start justify-between gap-3 mb-1">
+                    <h2 className="font-display font-600 text-lg text-ink">{cat.title}</h2>
+                    <button
+                      type="button"
+                      onClick={() => copyCategoryLink(anchorId)}
+                      aria-label={lang === "en" ? `Copy link to ${cat.title}` : `Αντιγραφή συνδέσμου για ${cat.title}`}
+                      title={lang === "en" ? "Copy section link" : "Αντιγραφή συνδέσμου ενότητας"}
+                      className={`relative shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+                        isCopied
+                          ? "border-emerald-300 bg-emerald-50 text-emerald-700"
+                          : "border-ink/10 bg-white text-steel hover:text-accent hover:border-accent/40"
+                      }`}
+                    >
+                      <Link2 size={15} strokeWidth={2} aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  {cat.tagline && (
+                    <p className="text-ink text-xs font-semibold leading-relaxed">{cat.tagline}</p>
+                  )}
+                  {cat.desc && (
+                    <p className={`text-steel text-xs leading-relaxed ${cat.tagline ? "mt-2" : "mt-0"}`}>{cat.desc}</p>
+                  )}
+
                   <button
                     onClick={() => toggleCode(cat.code)}
                     className="text-accent text-sm font-semibold flex items-center gap-1 hover:underline self-start mt-auto"
@@ -449,7 +562,7 @@ export default function ProductCatalogue() {
                     </div>
                   )}
                 </div>
-              </div>
+              </section>
             );
           })}
         </div>
