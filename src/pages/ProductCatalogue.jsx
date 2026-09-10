@@ -325,7 +325,7 @@ const categoryAnchors = {
   "16": "diakosmitikes",
 };
 
-const SITE_PRODUCTS_URL = "https://normasa.gr/products";
+const SITE_PRODUCTS_URL = "https://www.normasa.gr/products";
 
 const groupKeys = ["all", "mesh", "security", "materials", "constructions", "equipment"];
 const groupLabels = {
