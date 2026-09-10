@@ -491,7 +491,7 @@ export default function ProductCatalogue() {
           </div>
         )}
 
-        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {filtered.map((cat) => {
             const isOpen = openCodes.has(cat.code);
             const anchorId = categoryAnchors[cat.code];
@@ -531,7 +531,7 @@ export default function ProductCatalogue() {
 
                   <button
                     onClick={() => toggleCode(cat.code)}
-                    className="text-accent text-sm font-semibold flex items-center gap-1 hover:underline self-start mt-auto"
+                    className="text-accent text-sm font-semibold flex items-center gap-1 hover:underline self-start mt-3"
                   >
                     {lang === "en" ? `View ${cat.variants.length} products` : `Δείτε τα ${cat.variants.length} προϊόντα`}
                     <span className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>⌄</span>
