@@ -43,7 +43,7 @@ const categoriesEl = [
       { name: "PVC Πλαστικοποιημένο – Φ 2,60 mm", subtitle: "Καρέ 55×55 mm, ρολό 20 m", specs: [["Διάμετρος σύρματος", "2,60 mm"], ["Καρέ πλέγματος", "55×55 mm"], ["Μήκος ρολού", "20 m"], ["Ύψος ρολού", "1,00 – 1,20 – 1,50 – 1,80 – 2,00 m"]] },
     ] },
   { code: "03", groupKey: "mesh", title: "Πλέγμα Γαλβανιζέ σε Φύλλο", tagline: "Γαλβανισμένο πλέγμα σε φύλλο για κατασκευαστικές και βιομηχανικές εφαρμογές.", desc: "Πονταριστά γαλβανιζέ πλέγματα σε φύλλα, 50 τεμ./δέμα.",
-    images: [asset("/images/panel-galvanized-1.png"), asset("/images/panel-galvanized-2.png"), asset("/images/panel-galvanized-3.jpg")],
+    images: [asset("/images/panel-galvanized-1.png"), asset("/images/panel-galvanized-3.jpg")],
     variants: [
       { name: "Φύλλο Φ 3,00 mm", subtitle: "Γαλβανιζέ, 50 τεμ./δέμα", specs: [["Πάχος σύρματος", "3,00 mm"], ["Διαστάσεις", "2,00×5,00 m | 1,50×5,00 m"], ["Τεμάχια/δέμα", "50"]] },
       { name: "Φύλλο Φ 3,50 mm", subtitle: "Γαλβανιζέ, 50 τεμ./δέμα", specs: [["Πάχος σύρματος", "3,50 mm"], ["Διαστάσεις", "2,00×5,00 m | 1,50×5,00 m"], ["Τεμάχια/δέμα", "50"]] },
@@ -129,7 +129,7 @@ const categoriesEl = [
       { name: "Υπόστεγα", subtitle: "Μεταλλικές κατασκευές", specs: [["Κατασκευή", "Κατά παραγγελία"], ["Υλικό", "Γαλβανιζέ σωλήνες & κοιλοδοκοί"]] },
     ] },
   { code: "13", groupKey: "equipment", title: "Χειράμαξες & Εργαλεία", tagline: "Χειράμαξες και εργαλεία για αγροτική και κατασκευαστική χρήση.", desc: "Χειράμαξες ηλεκτροστατικά βαμμένες, καροτσάκια και ανταλλακτικά.",
-    images: [asset("/images/product-06.png"), asset("/images/wheelbarrow-norma-1.png"), asset("/images/wheelbarrow-norma-2.jpg"), asset("/images/wheelbarrow-norma-3.jpg")],
+    images: [asset("/images/product-06.png"), asset("/images/wheelbarrow-norma-1.png"), asset("/images/wheelbarrow-norma-2.jpg"), asset("/images/wheelbarrow-norma-3.jpg"), asset("/images/wheelbarrow-dolly-1.png"), asset("/images/wheelbarrow-dolly-2.png")],
     variants: [
       { name: "Εργολαβικό απλό NORMA No 1", subtitle: "Χειράμαξα ηλεκτροστατικά βαμμένη", specs: [["Τύπος", "Απλή"], ["Ρόδα", "Αεροθαλάμου"], ["Φινίρισμα", "Ηλεκτροστατικά βαμμένη"]] },
       { name: "Εργολαβικό ενισχυμένο NORMA No 3", subtitle: "Βαρέως τύπου, ενισχυμένο πλαίσιο", specs: [["Τύπος", "Βαρέως τύπου ενισχυμένη"], ["Ρόδα", "Αεροθαλάμου ή συμπαγής"], ["Φινίρισμα", "Ηλεκτροστατικά βαμμένη"]] },
@@ -137,7 +137,7 @@ const categoriesEl = [
       { name: "Ανταλλακτικά χειράμαξων", subtitle: "Ρόδες, λάστιχα, κάδοι", specs: [["Ρόδες", "Αεροθαλάμου ή συμπαγείς"], ["Κάδοι", "Πλαστικοί ή μεταλλικοί"], ["Λάστιχα", "Διάφορα μεγέθη"]] },
     ] },
   { code: "14", groupKey: "constructions", title: "Κατασκευές Περιφράξεων", tagline: "Ολοκληρωμένες κατασκευές περιφράξεων κατά παραγγελία.", desc: "Πλήρη κατασκευή περίφραξης οικοπέδων, αγροτεμαχίων, στρατιωτικών εγκαταστάσεων τύπου ΝΑΤΟ, φωτοβολταϊκών πάρκων, κτηνοτροφικών μονάδων. Τα εξειδικευμένα συνεργεία μας αναλαμβάνουν την πλήρη κατασκευή και τοποθέτηση κάθε περίφραξης, προσαρμοσμένη στα μέτρα του πελάτη.",
-    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png")],
+    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
     variants: [
       { name: "Περίφραξη οικοπέδων", subtitle: "Πλήρης κατασκευή με panel ή πλέγμα", specs: [["Τύποι", "Ηλεκτροστατικά βαμμένα panel, πονταριστά, δικτυωτά"], ["Πάσσαλοι", "Κοιλοδοκοί 50×50, σωλήνες, σιδηρογωνίες"], ["Εξαρτήματα", "Clips, τάπες, στριφώνια, τεντωτήρες"]] },
       { name: "Περίφραξη αγροτεμαχίων", subtitle: "Ανθεκτικές κατασκευές για αγροτική χρήση", specs: [["Υλικά", "Πονταριστό ή δικτυωτό πλέγμα"], ["Στήριξη", "Σιδηρογωνίες ή γαλβανιζέ σωλήνες"]] },
@@ -189,7 +189,7 @@ const categoriesEn = [
       { name: "PVC-Coated – Ø 2.60 mm", subtitle: "Grid 55×55 mm, 20m roll", specs: [["Wire diameter", "2.60 mm"], ["Mesh size", "55×55 mm"], ["Roll length", "20m"], ["Roll height", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
     ] },
   { code: "03", groupKey: "mesh", title: "Galvanized Mesh Sheets", desc: "Welded galvanized mesh in sheets, 50 pcs/bundle.",
-    images: [asset("/images/panel-galvanized-1.png"), asset("/images/panel-galvanized-2.png"), asset("/images/panel-galvanized-3.jpg")],
+    images: [asset("/images/panel-galvanized-1.png"), asset("/images/panel-galvanized-3.jpg")],
     variants: [
       { name: "Sheet Ø 3.00 mm", subtitle: "Galvanized, 50 pcs/bundle", specs: [["Wire thickness", "3.00 mm"], ["Dimensions", "2.00×5.00 m | 1.50×5.00 m"], ["Pieces/bundle", "50"]] },
       { name: "Sheet Ø 3.50 mm", subtitle: "Galvanized, 50 pcs/bundle", specs: [["Wire thickness", "3.50 mm"], ["Dimensions", "2.00×5.00 m | 1.50×5.00 m"], ["Pieces/bundle", "50"]] },
@@ -275,7 +275,7 @@ const categoriesEn = [
       { name: "Sheds", subtitle: "Metal constructions", specs: [["Manufacturing", "Custom"], ["Material", "Galvanized pipes & square posts"]] },
     ] },
   { code: "13", groupKey: "equipment", title: "Wheelbarrows & Tools", desc: "Powder-coated wheelbarrows, trolleys and spare parts.",
-    images: [asset("/images/product-06.png"), asset("/images/wheelbarrow-norma-1.png"), asset("/images/wheelbarrow-norma-2.jpg"), asset("/images/wheelbarrow-norma-3.jpg")],
+    images: [asset("/images/product-06.png"), asset("/images/wheelbarrow-norma-1.png"), asset("/images/wheelbarrow-norma-2.jpg"), asset("/images/wheelbarrow-norma-3.jpg"), asset("/images/wheelbarrow-dolly-1.png"), asset("/images/wheelbarrow-dolly-2.png")],
     variants: [
       { name: "Standard NORMA No 1 Wheelbarrow", subtitle: "Powder-coated wheelbarrow", specs: [["Type", "Standard"], ["Wheel", "Pneumatic"], ["Finish", "Powder-coated"]]},
       { name: "Heavy-duty NORMA No 3 Wheelbarrow", subtitle: "Heavy-duty, reinforced frame", specs: [["Type", "Heavy-duty reinforced"], ["Wheel", "Pneumatic or solid"], ["Finish", "Powder-coated"]] },
@@ -283,7 +283,7 @@ const categoriesEn = [
       { name: "Wheelbarrow spare parts", subtitle: "Wheels, tires, buckets", specs: [["Wheels", "Pneumatic or solid"], ["Buckets", "Plastic or metal"], ["Tires", "Various sizes"]] },
     ] },
   { code: "14", groupKey: "constructions", title: "Fencing Construction", desc: "Complete fencing construction for plots, agricultural land, NATO-type military installations, solar parks, livestock farms. Our specialized crews undertake the full construction and installation of every fence, customized to client specifications.",
-    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png")],
+    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
     variants: [
       { name: "Plot fencing", subtitle: "Full construction with panel or mesh", specs: [["Types", "Powder-coated panel, welded, chain-link"], ["Posts", "	50×50 hollow sections, tubes, angle bars"], ["Accessories", "Clips, caps, screws, tensioners"]] },
       { name: "Agricultural land fencing", subtitle: "Durable construction for agricultural use", specs: [["Materials", "Welded or chain-link mesh"], ["Support", "Angle bars or galvanized tubes"]] },
@@ -347,11 +347,6 @@ function ImageCarousel({ images, alt, labels }) {
     setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
   }
 
-  function downloadFileName(src) {
-    const base = src.split("/").pop() || "image.jpg";
-    return base;
-  }
-
   return (
     <>
       <div className="relative w-full h-64 md:h-72 border-b border-ink/10 overflow-hidden group">
@@ -413,15 +408,6 @@ function ImageCarousel({ images, alt, labels }) {
               </button>
             </>
           )}
-
-          <a
-            href={images[index]}
-            download={downloadFileName(images[index])}
-            onClick={(e) => e.stopPropagation()}
-            className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
-          >
-            {labels.downloadImage}
-          </a>
         </div>
       )}
     </>
@@ -432,7 +418,7 @@ export default function ProductCatalogue() {
   const { lang, t } = useLanguage();
   const categories = lang === "en" ? categoriesEn : categoriesEl;
   const [activeGroup, setActiveGroup] = useState("all");
-  const [openCodes, setOpenCodes] = useState(new Set());
+  const [openCode, setOpenCode] = useState(null);
   const [copiedAnchor, setCopiedAnchor] = useState(null);
   const [toastMessage, setToastMessage] = useState("");
 
@@ -447,12 +433,7 @@ export default function ProductCatalogue() {
   }, [toastMessage]);
 
   function toggleCode(code) {
-    setOpenCodes((prev) => {
-      const next = new Set(prev);
-      if (next.has(code)) next.delete(code);
-      else next.add(code);
-      return next;
-    });
+    setOpenCode((prev) => (prev === code ? null : code));
   }
 
   const filtered = activeGroup === "all" ? categories : categories.filter((c) => c.groupKey === activeGroup);
@@ -500,7 +481,6 @@ export default function ProductCatalogue() {
     prevImage: lang === "en" ? "Previous image" : "Προηγούμενη εικόνα",
     nextImage: lang === "en" ? "Next image" : "Επόμενη εικόνα",
     closeLightbox: lang === "en" ? "Close" : "Κλείσιμο",
-    downloadImage: lang === "en" ? "Download image" : "Λήψη εικόνας",
     zoomHint: lang === "en" ? "Click to enlarge" : "Κλικ για μεγέθυνση",
   };
 
@@ -556,7 +536,7 @@ export default function ProductCatalogue() {
 
         <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           {filtered.map((cat) => {
-            const isOpen = openCodes.has(cat.code);
+            const isOpen = openCode === cat.code;
             const anchorId = categoryAnchors[cat.code];
             const seoDescription = [cat.tagline, cat.desc].filter(Boolean).join(" ");
             const isCopied = copiedAnchor === anchorId;
