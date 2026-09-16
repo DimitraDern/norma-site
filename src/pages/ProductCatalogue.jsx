@@ -50,7 +50,7 @@ const categoriesEl = [
       { name: "Φύλλο Φ 4,00 mm", subtitle: "Γαλβανιζέ, 50 τεμ./δέμα", specs: [["Πάχος σύρματος", "4,00 mm"], ["Διαστάσεις", "2,00×5,00 m | 1,50×5,00 m"], ["Τεμάχια/δέμα", "50"]] },
     ] },
   { code: "04", groupKey: "mesh", title: "NORMA Panel – Ηλεκτροστατικά Βαμμένα & Γαλβανιζέ", tagline: "Πάνελ περίφραξης γαλβανιζέ ή ηλεκτροστατικά βαμμένα, ιδανικά για κήπους, αυλές και επαγγελματικούς χώρους.", desc: "Πλέγματα γαλβανιζέ και πλαστικοποιημένα (PVC) σε φύλλα panel 2,50 m. Χρώματα: RAL 6005 (πράσινο), 7043 (σκούρο γκρι), 7045 (ανοιχτό γκρι).",
-    images: [asset("/images/product-02.jpg"), asset("/images/norma-panel-1.png"), asset("/images/norma-panel-2.png"), asset("/images/norma-panel-3.jpg"), asset("/images/norma-panel-5.jpg"), asset("/images/norma-panel-4.png")],
+    images: [asset("/images/product-02.jpg"), asset("/images/norma-panel-1.png"), asset("/images/norma-panel-2.png"), asset("/images/norma-panel-3.jpg"), asset("/images/norma-panel-5.jpg"), asset("/images/norma-panel-4.png"), asset("/images/panel-diagram-50x100.png"), asset("/images/panel-diagram-55x200.png"), asset("/images/panel-diagram-70x200.png")],
     variants: [
       { name: "NORMA Panel PVC 50×100", subtitle: "Γαλβανιζέ + πλαστικοποιημένο, Φ 4,20 mm", specs: [["Διάμετρος σύρματος", "4,20 mm"], ["Καρέ", "50×100 mm"], ["Διαστάσεις (Ύψος×Μήκος)", "1,00×2,50 | 1,20×2,50 | 1,50×2,50 | 1,76×2,50 | 1,96×2,50 m"], ["Χρώματα RAL", "6005 – 7043 – 7045"]] },
       { name: "Panel Γαλβανιζέ 50×100", subtitle: "Γαλβανιζέ χωρίς βαφή, Φ 4,00 mm", specs: [["Διάμετρος σύρματος", "4,00 mm"], ["Καρέ", "50×100 mm"], ["Διαστάσεις (Ύψος×Μήκος)", "1,00×2,50 | 1,20×2,50 | 1,50×2,50 | 1,76×2,50 | 1,96×2,50 m"]] },
@@ -196,7 +196,7 @@ const categoriesEn = [
       { name: "Sheet Ø 4.00 mm", subtitle: "Galvanized, 50 pcs/bundle", specs: [["Wire thickness", "4.00 mm"], ["Dimensions", "2.00×5.00 m | 1.50×5.00 m"], ["Pieces/bundle", "50"]] },
     ] },
   { code: "04", groupKey: "mesh", title: "NORMA Panel – Powder-Coated & Galvanized", desc: "Galvanized and PVC-coated mesh in 2.50m panel sheets.", tagline: "Colors: RAL 6005 (green), 7043 (dark grey), 7045 (light grey).",
-    images: [asset("/images/product-02.jpg"), asset("/images/norma-panel-1.png"), asset("/images/norma-panel-2.png"), asset("/images/norma-panel-3.jpg"), asset("/images/norma-panel-5.jpg"), asset("/images/norma-panel-4.png")],
+    images: [asset("/images/product-02.jpg"), asset("/images/norma-panel-1.png"), asset("/images/norma-panel-2.png"), asset("/images/norma-panel-3.jpg"), asset("/images/norma-panel-5.jpg"), asset("/images/norma-panel-4.png"), asset("/images/panel-diagram-50x100.png"), asset("/images/panel-diagram-55x200.png"), asset("/images/panel-diagram-70x200.png")],
     variants: [
       { name: "NORMA Panel PVC 50×100", subtitle: "Galvanized + PVC-coated, Ø 4.20 mm", specs: [["Wire diameter", "4.20 mm"], ["Mesh", "50×100 mm"], ["Dimensions (H×L)", "1.00×2.50 | 1.20×2.50 | 1.50×2.50 | 1.76×2.50 | 1.96×2.50 m"], ["RAL colors", "6005 – 7043 – 7045"]] },
       { name: "Galvanized Panel 50×100", subtitle: "Galvanized, unpainted, Ø 4.00 mm", specs: [["Wire diameter", "4.00 mm"], ["Mesh", "50×100 mm"], ["Dimensions (H×L)", "1.00×2.50 | 1.20×2.50 | 1.50×2.50 | 1.76×2.50 | 1.96×2.50 m"]] },
@@ -335,6 +335,7 @@ const groupLabels = {
 
 function ImageCarousel({ images, alt, labels }) {
   const [index, setIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const hasMultiple = images.length > 1;
 
   function prev(e) {
@@ -346,25 +347,84 @@ function ImageCarousel({ images, alt, labels }) {
     setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
   }
 
+  function downloadFileName(src) {
+    const base = src.split("/").pop() || "image.jpg";
+    return base;
+  }
+
   return (
-    <div className="relative w-full h-40 border-b border-ink/10 overflow-hidden group">
-      <img src={images[index]} alt={`${alt} — εικόνα προϊόντος ${index + 1}`} className="w-full h-full object-cover" />
-      {hasMultiple && (
-        <>
-          <button onClick={prev} aria-label={labels.prevImage} className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ink/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            ‹
+    <>
+      <div className="relative w-full h-64 md:h-72 border-b border-ink/10 overflow-hidden group">
+        <img
+          src={images[index]}
+          alt={`${alt} — εικόνα προϊόντος ${index + 1}`}
+          title={labels.zoomHint}
+          onClick={() => setLightboxOpen(true)}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover cursor-zoom-in"
+        />
+        {hasMultiple && (
+          <>
+            <button onClick={prev} aria-label={labels.prevImage} className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ink/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              ‹
+            </button>
+            <button onClick={next} aria-label={labels.nextImage} className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ink/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              ›
+            </button>
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
+              {images.map((_, i) => (
+                <span key={i} className={`w-1.5 h-1.5 rounded-full ${i === index ? "bg-white" : "bg-white/40"}`} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {lightboxOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setLightboxOpen(false)}
+          className="fixed inset-0 z-[100] bg-black/85 flex items-center justify-center p-4 md:p-10"
+        >
+          <button
+            onClick={() => setLightboxOpen(false)}
+            aria-label={labels.closeLightbox}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-2xl leading-none"
+          >
+            ×
           </button>
-          <button onClick={next} aria-label={labels.nextImage} className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ink/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            ›
-          </button>
-          <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
-            {images.map((_, i) => (
-              <span key={i} className={`w-1.5 h-1.5 rounded-full ${i === index ? "bg-white" : "bg-white/40"}`} />
-            ))}
-          </div>
-        </>
+
+          <img
+            src={images[index]}
+            alt={`${alt} — εικόνα προϊόντος ${index + 1}`}
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-[80vh] object-contain rounded-sm"
+          />
+
+          {hasMultiple && (
+            <>
+              <button onClick={prev} aria-label={labels.prevImage} className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xl">
+                ‹
+              </button>
+              <button onClick={next} aria-label={labels.nextImage} className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xl">
+                ›
+              </button>
+            </>
+          )}
+
+          <a
+            href={images[index]}
+            download={downloadFileName(images[index])}
+            onClick={(e) => e.stopPropagation()}
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+          >
+            {labels.downloadImage}
+          </a>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -439,6 +499,9 @@ export default function ProductCatalogue() {
   const catalogueLabels = {
     prevImage: lang === "en" ? "Previous image" : "Προηγούμενη εικόνα",
     nextImage: lang === "en" ? "Next image" : "Επόμενη εικόνα",
+    closeLightbox: lang === "en" ? "Close" : "Κλείσιμο",
+    downloadImage: lang === "en" ? "Download image" : "Λήψη εικόνας",
+    zoomHint: lang === "en" ? "Click to enlarge" : "Κλικ για μεγέθυνση",
   };
 
   return (
@@ -491,7 +554,7 @@ export default function ProductCatalogue() {
           </div>
         )}
 
-        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           {filtered.map((cat) => {
             const isOpen = openCodes.has(cat.code);
             const anchorId = categoryAnchors[cat.code];
@@ -506,7 +569,7 @@ export default function ProductCatalogue() {
                 />
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-3 mb-1">
-                    <h2 className="font-display font-600 text-lg text-ink">{cat.title}</h2>
+                    <h2 className="font-display font-600 text-2xl text-ink">{cat.title}</h2>
                     <button
                       type="button"
                       onClick={() => copyCategoryLink(anchorId)}
@@ -542,8 +605,8 @@ export default function ProductCatalogue() {
                       {cat.variants.map((v, vi) => (
                         <div key={vi} className="bg-white border border-ink/10 rounded-sm overflow-hidden">
                           <div className="p-3 pb-2">
-                            <div className="font-semibold text-sm text-ink mb-0.5">{v.name}</div>
-                            <div className="text-xs text-ink/75 font-medium">{v.subtitle}</div>
+                            <div className="font-semibold text-base text-ink mb-0.5">{v.name}</div>
+                            <div className="text-sm text-ink/75 font-medium">{v.subtitle}</div>
                           </div>
                           <table className="w-full border-t border-ink/10">
                             <tbody>

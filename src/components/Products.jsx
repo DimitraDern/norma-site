@@ -150,6 +150,8 @@ export default function Products() {
                   src={p.img}
                   alt={p.title}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                   // Το "βαρέλι" σχήμα -- ελλειπτική στρογγυλοποίηση πάνω/κάτω άκρη
                   style={{ borderRadius: "50% / 7%" }}
                   className={`w-[330px] h-[420px] object-cover transition-shadow duration-500 ${
