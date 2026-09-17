@@ -146,7 +146,7 @@ const categoriesEl = [
       { name: "Περίφραξη κτηνοτροφικών μονάδων", subtitle: "Ειδικές κατασκευές για ζωικό κεφάλαιο", specs: [["Υλικά", "Πονταριστό πλέγμα, σιδηρογωνίες"], ["Τύπος", "Ανθεκτική κατασκευή"]] },
     ] },
   { code: "15", groupKey: "constructions", title: "Αγροτικές Εγκαταστάσεις", tagline: "Μεταλλικές κατασκευές για αγροτικές εγκαταστάσεις και κτηνοτροφικές μονάδες.", desc: "Πασσάλωση και εξοπλισμός για ακτινίδια, σπαράγγια, αμπέλια, θερμοκήπια.",
-    images: [asset("/images/agricultural-1.png")],
+    images: [asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
     variants: [
       { name: "Πασσάλωση αγροτεμαχίων", subtitle: "Για ακτινίδια, σπαράγγια, αμπέλια", specs: [["Υλικό", "Γαλβανιζέ σωλήνες & κοιλοδοκοί"], ["Ύψος", "1.50 – 2.00 – 2.50 – 3.00 m"], ["Κατασκευή", "Κατά παραγγελία"]] },
       { name: "Θερμοκήπια", subtitle: "Μεταλλικός σκελετός, γαλβανιζέ", specs: [["Σκελετός", "Γαλβανιζέ σωλήνες"], ["Τύπος", "Τούνελ ή πολυκαρμπονάτο"], ["Κατασκευή", "Κατά παραγγελία"]] },
@@ -292,7 +292,7 @@ const categoriesEn = [
       { name: "Livestock farm fencing", subtitle: "Special constructions for livestock", specs: [["Materials", "Welded mesh, angle irons"], ["Type", "Durable construction"]] },
     ] },
   { code: "15", groupKey: "constructions", title: "Agricultural Installations", desc: "Posts and equipment for kiwi, asparagus, vineyards and greenhouses.",
-    images: [asset("/images/agricultural-1.png")],
+    images: [asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
     variants: [
       { name: "Farmland post support", subtitle: "For kiwi, asparagus, vineyards", specs: [["Material", "Galvanized tubes & hollow sections"], ["Height", "1.50 – 2.00 – 2.50 – 3.00 m"], ["Manufacturing", "Custom"]] },
       { name: "Greenhouses", subtitle: "Metal frame, galvanized", specs: [["Frame", "Galvanized tubes"], ["Type", "Tunnel or polycarbonate"], ["Manufacturing", "Custom"]] },
