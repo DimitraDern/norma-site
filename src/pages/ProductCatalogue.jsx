@@ -16,7 +16,7 @@ import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 const categoriesEl = [
   { code: "01", groupKey: "mesh", title: "Πονταριστά Συρματοπλέγματα", tagline: "Πονταριστά συρματοπλέγματα υψηλής αντοχής για αγροτικές και βιομηχανικές περιφράξεις, παραγωγή NORMA S.A.", desc: "Ηλεκτροσυγκολλητά (πονταριστά) συρματοπλέγματα σε ρολό — πλήρης γκάμα καρέ, υψών και διαμέτρων σύρματος.",
-    images: [asset("/images/product-04.png"), asset("/images/pontarista-1.png"), asset("/images/pontarista-2.jpg"), asset("/images/pontarista-3.png")],
+    images: [asset("/images/product-04.png"), asset("/images/pontarista-1.png"), asset("/images/pontarista-2.jpg"), asset("/images/pontarista-3.png"), asset("/images/pontarista-4.jpg")],
     variants: [
       { name: "Πονταριστό 60×100 mm (Φ 3.00/2.40)", subtitle: "Γαλβανιζέ, ρολό 20 m", specs: [["Καρέ", "60×100 mm"], ["Σύρμα", "Φ 3.00 / 2.40 mm"], ["Μήκος ρολού", "20 m"], ["Ύψη", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
       { name: "Πονταριστό 60×100 mm (Φ 2.70/2.40)", subtitle: "Γαλβανιζέ, ρολό 20 m", specs: [["Καρέ", "60×100 mm"], ["Σύρμα", "Φ 2.70 / 2.40 mm"], ["Μήκος ρολού", "20 m"], ["Ύψη", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
@@ -137,7 +137,7 @@ const categoriesEl = [
       { name: "Ανταλλακτικά χειράμαξων", subtitle: "Ρόδες, λάστιχα, κάδοι", specs: [["Ρόδες", "Αεροθαλάμου ή συμπαγείς"], ["Κάδοι", "Πλαστικοί ή μεταλλικοί"], ["Λάστιχα", "Διάφορα μεγέθη"]] },
     ] },
   { code: "14", groupKey: "constructions", title: "Κατασκευές Περιφράξεων", tagline: "Ολοκληρωμένες κατασκευές περιφράξεων κατά παραγγελία.", desc: "Πλήρη κατασκευή περίφραξης οικοπέδων, αγροτεμαχίων, στρατιωτικών εγκαταστάσεων τύπου ΝΑΤΟ, φωτοβολταϊκών πάρκων, κτηνοτροφικών μονάδων. Τα εξειδικευμένα συνεργεία μας αναλαμβάνουν την πλήρη κατασκευή και τοποθέτηση κάθε περίφραξης, προσαρμοσμένη στα μέτρα του πελάτη.",
-    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
+    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg"), asset("/images/fencing-real-5.jpg"), asset("/images/fencing-real-6.jpg"), asset("/images/fencing-real-7.jpg")],
     variants: [
       { name: "Περίφραξη οικοπέδων", subtitle: "Πλήρης κατασκευή με panel ή πλέγμα", specs: [["Τύποι", "Ηλεκτροστατικά βαμμένα panel, πονταριστά, δικτυωτά"], ["Πάσσαλοι", "Κοιλοδοκοί 50×50, σωλήνες, σιδηρογωνίες"], ["Εξαρτήματα", "Clips, τάπες, στριφώνια, τεντωτήρες"]] },
       { name: "Περίφραξη αγροτεμαχίων", subtitle: "Ανθεκτικές κατασκευές για αγροτική χρήση", specs: [["Υλικά", "Πονταριστό ή δικτυωτό πλέγμα"], ["Στήριξη", "Σιδηρογωνίες ή γαλβανιζέ σωλήνες"]] },
@@ -162,7 +162,7 @@ const categoriesEl = [
 
 const categoriesEn = [
   { code: "01", groupKey: "mesh", title: "Welded Wire Mesh", desc: "Electrowelded wire mesh in rolls - full range of mesh sizes, heights and wire diameters.",
-    images: [asset("/images/product-04.png"), asset("/images/pontarista-1.png"), asset("/images/pontarista-2.jpg"), asset("/images/pontarista-3.png")],
+    images: [asset("/images/product-04.png"), asset("/images/pontarista-1.png"), asset("/images/pontarista-2.jpg"), asset("/images/pontarista-3.png"), asset("/images/pontarista-4.jpg")],
     variants: [
       { name: "Welded  60×100 mm (Ø 3.00/2.40)", subtitle: "Galvanized, 20m roll", specs: [["Mesh", "60×100 mm"], ["Wire", "Ø 3.00 / 2.40 mm"], ["Roll length", "20m"], ["Heights", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
       { name: "Welded  60×100 mm (Ø 2.70/2.40)", subtitle: "Galvanized, 20m roll", specs: [["Mesh", "60×100 mm"], ["Wire", "Ø 2.70 / 2.40 mm"], ["Roll length", "20m"], ["Heights", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
@@ -283,7 +283,7 @@ const categoriesEn = [
       { name: "Wheelbarrow spare parts", subtitle: "Wheels, tires, buckets", specs: [["Wheels", "Pneumatic or solid"], ["Buckets", "Plastic or metal"], ["Tires", "Various sizes"]] },
     ] },
   { code: "14", groupKey: "constructions", title: "Fencing Construction", desc: "Complete fencing construction for plots, agricultural land, NATO-type military installations, solar parks, livestock farms. Our specialized crews undertake the full construction and installation of every fence, customized to client specifications.",
-    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg")],
+    images: [asset("/images/product-05.png"), asset("/images/norma-panel-2.png"), asset("/images/fencing-enhanced-1.png"), asset("/images/fencing-enhanced-2.png"), asset("/images/fencing-real-1.jpg"), asset("/images/fencing-real-2.jpg"), asset("/images/fencing-real-3.jpg"), asset("/images/fencing-real-4.jpg"), asset("/images/fencing-real-5.jpg"), asset("/images/fencing-real-6.jpg"), asset("/images/fencing-real-7.jpg")],
     variants: [
       { name: "Plot fencing", subtitle: "Full construction with panel or mesh", specs: [["Types", "Powder-coated panel, welded, chain-link"], ["Posts", "	50×50 hollow sections, tubes, angle bars"], ["Accessories", "Clips, caps, screws, tensioners"]] },
       { name: "Agricultural land fencing", subtitle: "Durable construction for agricultural use", specs: [["Materials", "Welded or chain-link mesh"], ["Support", "Angle bars or galvanized tubes"]] },
