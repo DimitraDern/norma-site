@@ -32,7 +32,7 @@ const categoriesEl = [
       { name: "Πονταριστό PVC 50×100 mm (Φ 2.50)", subtitle: "Πλαστικοποιημένο RAL 6005 (πράσινο), ρολό 25 m", specs: [["Καρέ", "50×100 mm"], ["Σύρμα", "Φ 2.50 mm PVC"], ["Χρώμα", "RAL 6005"], ["Μήκος ρολού", "25 m"], ["Ύψη", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
     ] },
   { code: "02", groupKey: "mesh", title: "Δικτυωτά (Πλεκτά) Συρματοπλέγματα", tagline: "Δικτυωτό πλεκτό συρματόπλεγμα (chain link) για περιφράξεις γηπέδων, οικοπέδων και βιομηχανικών χώρων.", desc: "Δικτυωτά (πλεκτά / chain-link) συρματοπλέγματα σε ρολό, γαλβανιζέ ή πλαστικοποιημένα. Σειρά «ΕΒΡΟΣ 1».",
-    images: [asset("/images/product-01.jpg"), asset("/images/diktyota-1.jpg"), asset("/images/diktyota-2.png")],
+    images: [asset("/images/product-01.jpg"), asset("/images/diktyota-1.jpg"), asset("/images/diktyota-2.png"), asset("/images/diktyota-3.jpg")],
     variants: [
       { name: "Νο 10 – Φ 1,5 mm", subtitle: "Καρέ 40×40 mm, ρολό 25 m", specs: [["Διάμετρος σύρματος", "1,5 mm"], ["Καρέ πλέγματος", "40×40 mm"], ["Μήκος ρολού", "25 m"], ["Ύψος ρολού", "1,00 – 1,20 – 1,50 – 1,80 – 2,00 m"]] },
       { name: "Νο 12 – Φ 1,8 mm", subtitle: "Καρέ 40×40 / 50×50 / 55×55 / 65×65 mm, ρολό 25 m", specs: [["Διάμετρος σύρματος", "1,8 mm"], ["Καρέ πλέγματος", "40×40 – 50×50 – 55×55 – 65×65 mm"], ["Μήκος ρολού", "25 m"], ["Ύψος ρολού", "1,00 – 1,20 – 1,50 – 1,80 – 2,00 m"]] },
@@ -178,7 +178,7 @@ const categoriesEn = [
       { name: "Welded  PVC 50×100 mm (Ø 2.50)", subtitle: "PVC-coated RAL 6005 (green), 25mroll", specs: [["Mesh", "50×100 mm"], ["Wire", "Ø 2.50 mm PVC"], ["Color", "RAL 6005"], ["Roll length", "25m"], ["Heights", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
     ] },
   { code: "02", groupKey: "mesh", title: "Chain-Link Wire Mesh", desc: "Chain-link wire mesh in rolls, galvanized or PVC coated. Series «EVROS 1».",
-    images: [asset("/images/product-01.jpg"), asset("/images/diktyota-1.jpg"), asset("/images/diktyota-2.png")],
+    images: [asset("/images/product-01.jpg"), asset("/images/diktyota-1.jpg"), asset("/images/diktyota-2.png"), asset("/images/diktyota-3.jpg")],
     variants: [
       { name: "No 10 – Ø 1.5 mm", subtitle: "Grid 40×40 mm, 25m roll", specs: [["Wire diameter", "1.5 mm"], ["Mesh size", "40×40 mm"], ["Roll length", "25m"], ["Roll height", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
       { name: "No 12 – Ø 1.8 mm", subtitle: "Grid 40×40 / 50×50 / 55×55 / 65×65 mm, 25m roll", specs: [["Wire diameter", "1.8 mm"], ["Mesh size", "40×40 – 50×50 – 55×55 – 65×65 mm"], ["Roll length", "25m"], ["Roll height", "1.00 – 1.20 – 1.50 – 1.80 – 2.00 m"]] },
